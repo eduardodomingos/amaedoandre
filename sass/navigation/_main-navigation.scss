@@ -1,9 +1,32 @@
 .main-navigation {
     display: flex;
     justify-content: center;
+    border-top: rem(1px solid $gold-drop);
+    border-bottom: rem(1px solid $gold-drop);
+    padding: rem(20px 0);
+    background-color: $white;
+    position: sticky;
+    top: 0;
+
     .menu {
         list-style: none;
         margin: 0;
         display: flex;
+
+        > li:not(:last-child) {
+            margin-right: rem(20px);
+        }
+
+        a {
+            color: $dove-gray;
+            &:visited {
+                color: $dove-gray;
+            }
+            &:hover,
+            &:focus,
+            &:active {
+                color: $gold-drop;
+            }
+        }
     }
 }
