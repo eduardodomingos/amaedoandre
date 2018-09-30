@@ -9,14 +9,14 @@ html {
 }
 
 body {
-	background: $color__background-body; /* Fallback for when there is no custom background color defined. */
+	background: #fff; /* Fallback for when there is no custom background color defined. */
 }
 
 hr {
-	background-color: $color__background-hr;
+	background-color: $gallery;
 	border: 0;
-	height: 1px;
-	margin-bottom: 1.5em;
+	height: rem(1px);
+	margin-bottom: rem(20px);
 }
 
 @import "lists";
@@ -27,7 +27,7 @@ img {
 }
 
 figure {
-	margin: 1em 0; /* Extra wide images within figure tags don't overflow the content area. */
+	margin: rem(0, 20px); /* Extra wide images within figure tags don't overflow the content area. */
 }
 
-@import "tables";
+//@import "tables";
