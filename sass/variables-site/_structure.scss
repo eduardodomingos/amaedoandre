@@ -1,2 +1,9 @@
-$size__site-main: 100%;
-$size__site-sidebar: 25%;
+$size__site-main: minmax(0, 3fr);
+$size__site-sidebar: minmax(0, 1fr);
+
+$mq-breakpoints: (
+    mobile:  576px,
+    tablet:  768px,
+    desktop: 992px,
+    wide:    1200px
+);
