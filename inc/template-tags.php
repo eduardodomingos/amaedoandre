@@ -122,14 +122,12 @@ if ( ! function_exists( 'amaedoandre_post_thumbnail' ) ) :
 		if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
 			return;
 		}
-
+		?>
+		<figure class="post-thumbnail">
+		<?php
 		if ( is_singular() ) :
 			?>
-
-			<div class="post-thumbnail">
-				<?php the_post_thumbnail(); ?>
-			</div><!-- .post-thumbnail -->
-
+			<?php the_post_thumbnail(); ?>
 		<?php else : ?>
 
 		<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
@@ -143,6 +141,8 @@ if ( ! function_exists( 'amaedoandre_post_thumbnail' ) ) :
 		</a>
 
 		<?php
-		endif; // End is_singular().
+		endif; // End is_singular().?>
+		</figure>
+		<?php
 	}
 endif;
