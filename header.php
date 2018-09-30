@@ -35,12 +35,7 @@
 				?>
 				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
 				<?php
-			endif;
-			$amaedoandre_description = get_bloginfo( 'description', 'display' );
-			if ( $amaedoandre_description || is_customize_preview() ) :
-				?>
-				<p class="site-description"><?php echo $amaedoandre_description; /* WPCS: xss ok. */ ?></p>
-			<?php endif; ?>
+			endif;?>
 		</div><!-- .site-branding -->
 	</header><!-- #masthead -->
 
