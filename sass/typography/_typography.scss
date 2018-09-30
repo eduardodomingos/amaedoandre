@@ -1,15 +1,21 @@
+html {
+	@include rem-baseline;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
 body,
 button,
 input,
 select,
 optgroup,
 textarea {
-	color: $color__text-main;
-	font-family: $font__main;
-	@include font-size(1);
+	color: $mine-shaft;
+	font-family: $lora;
+	font-size: rem(15px);
 	line-height: $font__line-height-body;
 }
 
-@import "headings";
+//@import "headings";
 
-@import "copy";
+//@import "copy";
