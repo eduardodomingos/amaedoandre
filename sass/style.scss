@@ -46,7 +46,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 @import "../node_modules/sass-mq/mq";
 $rem-baseline: 10px;
 @import "../node_modules/sass-rem/rem";
-// @import "mixins/mixins-master";
+@import "mixins/mixins-master";
 
 /*--------------------------------------------------------------
 # Normalize
