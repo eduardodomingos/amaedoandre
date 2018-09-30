@@ -4,6 +4,7 @@
   "description": "Custom WordPress blogging theme",
   "main": "index.php",
   "dependencies": {
-    "sass-mq": "^5.0.0"
+    "sass-mq": "^5.0.0",
+    "sass-rem": "^2.0.1"
   }
 }

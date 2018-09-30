@@ -6,6 +6,7 @@
     'main'
     'sidebar'
     'footer';
+    grid-gap: rem(15px);
 
     @include mq($from: desktop) {
         grid-template-columns: $size__site-main $size__site-sidebar;
