@@ -7,6 +7,13 @@
     'sidebar'
     'footer';
     grid-gap: rem(15px);
+    max-width: rem(540px);
+    margin: 0 auto;
+    padding: rem(0 15px);
+
+    @include mq($from: tablet) {
+        max-width: rem(720px);
+    }
 
     @include mq($from: desktop) {
         grid-template-columns: $size__site-main $size__site-sidebar;
@@ -15,6 +22,11 @@
         'nav nav'
         'main sidebar'
         'footer footer'; 
+        max-width: rem(960px);
+    }
+    
+    @include mq($from: wide) {
+        max-width: rem(1140px);
     }
 }
 
