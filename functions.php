@@ -103,6 +103,8 @@ add_action( 'widgets_init', 'amaedoandre_widgets_init' );
  * Enqueue scripts and styles.
  */
 function amaedoandre_scripts() {
+	wp_enqueue_style( 'amaedoandre-google-fonts', '//fonts.googleapis.com/css?family=Amatic+SC:400,700|Lora:400,400i,700,700i' );
+
 	wp_enqueue_style( 'amaedoandre-style', get_stylesheet_uri() );
 
 	wp_enqueue_script( 'amaedoandre-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
