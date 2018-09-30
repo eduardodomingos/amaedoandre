@@ -1,0 +1,9 @@
+{
+  "name": "amaedoandre",
+  "version": "1.0.0",
+  "description": "WordPress theme developed for my wife's blog",
+  "main": "index.php",
+  "dependencies": {
+    "sass-mq": "^5.0.0"
+  }
+}
