@@ -7,6 +7,8 @@
     background-color: $white;
     position: sticky;
     top: 0;
+    font-size: rem(14px);
+    z-index: 1;
 
     .menu {
         list-style: none;
@@ -19,12 +21,7 @@
 
         a {
             color: $dove-gray;
-            &:visited {
-                color: $dove-gray;
-            }
-            &:hover,
-            &:focus,
-            &:active {
+            @include attention() {
                 color: $gold-drop;
             }
         }
