@@ -64,23 +64,13 @@ if ( ! function_exists( 'amaedoandre_posted_by' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'amaedoandre_entry_footer' ) ) :
+if ( ! function_exists( 'amaedoandre_comments_link' ) ) :
 	/**
-	 * Prints HTML with meta information for the categories, tags and comments.
+	 * Prints comments link.
 	 */
-	function amaedoandre_entry_footer() {
-		// Hide category and tag text for pages.
-		if ( 'post' === get_post_type() ) {
-			/* translators: used between list items, there is a space after the comma */
-			$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'amaedoandre' ) );
-			if ( $tags_list ) {
-				/* translators: 1: list of tags. */
-				printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'amaedoandre' ) . '</span>', $tags_list ); // WPCS: XSS OK.
-			}
-		}
-
+	function amaedoandre_comments_link() {
 		if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-			echo '<span class="comments-link">';
+			echo '<span class="comments-link meta">';
 			comments_popup_link(
 				sprintf(
 					wp_kses(
@@ -96,6 +86,24 @@ if ( ! function_exists( 'amaedoandre_entry_footer' ) ) :
 				)
 			);
 			echo '</span>';
+		}
+
+	}
+endif;
+
+if ( ! function_exists( 'amaedoandre_entry_footer' ) ) :
+	/**
+	 * Prints HTML with meta information for the categories, tags and comments.
+	 */
+	function amaedoandre_entry_footer() {
+		// Hide category and tag text for pages.
+		if ( 'post' === get_post_type() ) {
+			/* translators: used between list items, there is a space after the comma */
+			$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'amaedoandre' ) );
+			if ( $tags_list ) {
+				/* translators: 1: list of tags. */
+				printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'amaedoandre' ) . '</span>', $tags_list ); // WPCS: XSS OK.
+			}
 		}
 
 		edit_post_link(
