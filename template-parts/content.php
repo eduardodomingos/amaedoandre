@@ -11,7 +11,7 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
-	<?php amaedoandre_post_thumbnail(); 
+		<?php amaedoandre_post_thumbnail(); 
 		the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 
 		if ( 'post' === get_post_type() ) :
