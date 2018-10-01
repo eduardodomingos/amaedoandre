@@ -36,3 +36,11 @@ function amaedoandre_pingback_header() {
 	}
 }
 add_action( 'wp_head', 'amaedoandre_pingback_header' );
+
+/**
+ * Customize ellipsis at end of excerpts.
+ */
+function amaedoandre_excerpt_more( $more ) {
+	return "…";
+}
+add_filter( 'excerpt_more', 'amaedoandre_excerpt_more' );
