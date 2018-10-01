@@ -18,6 +18,7 @@
 			?>
 			<div class="entry-meta">
 				<?php
+				amaedoandre_posted_in();
 				amaedoandre_posted_on();
 				amaedoandre_posted_by();
 				?>
