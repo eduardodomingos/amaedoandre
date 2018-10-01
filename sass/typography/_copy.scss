@@ -1,15 +1,23 @@
-p {
-	margin: rem(21px 0);
-}
-
 dfn, cite, em, i {
 	font-style: italic;
 }
 
 blockquote {
-	margin: rem(0 20px);
-}
+	position: relative;
+	margin: rem(50px 0);
+	padding: rem(8px 65px);
+	border-top: 1px dashed $alto;
+	border-bottom: 1px dashed $alto;
+	font-weight: 700;
+	font-size: rem(17px);
+	text-align: center;
 
-address {
-	margin: rem(0 0 20px);
+	&:before {
+		position: absolute;
+		top: 0;
+		left: 0;
+		content: "“";
+		font-size: rem(75px);
+		color: lighten($alto, 5%);
+	}
 }
