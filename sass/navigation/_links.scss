@@ -3,14 +3,10 @@ a {
 	text-decoration: none;
 	transition: all .2s;
 
-	&:visited {
+	@include attention() {
 		color: $mine-shaft;
 	}
-	&:hover,
-	&:focus,
-	&:active {
-		color: $mine-shaft;
-	}
+	
 	&:focus {
 		outline: thin dotted;
 	}
