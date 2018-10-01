@@ -7,6 +7,23 @@
  * @package A_Mãe_do_André
  */
 
+if ( ! function_exists( 'amaedoandre_posted_in' ) ) :
+	/**
+	 * Displays an optional post thumbnail.
+	 *
+	 * Wraps the post thumbnail in an anchor element on index views, or a div
+	 * element when on single views.
+	 */
+	function amaedoandre_posted_in() {
+		/* translators: used between list items, there is a space after the comma */
+		$categories_list = get_the_category_list( esc_html__( ', ', 'amaedoandre' ) );
+		if ( $categories_list ) {
+			/* translators: 1: list of categories. */
+			printf( '<span class="cat-links meta">' . esc_html__( 'In %1$s', 'amaedoandre' ) . '</span>', $categories_list ); // WPCS: XSS OK.
+		}
+	}
+endif;
+
 if ( ! function_exists( 'amaedoandre_posted_on' ) ) :
 	/**
 	 * Prints HTML with meta information for the current post-date/time.
@@ -24,7 +41,7 @@ if ( ! function_exists( 'amaedoandre_posted_on' ) ) :
 			sprintf( _x( '%s ago', '%s = human-readable time difference', 'amaedoandre' ), human_time_diff( get_the_modified_time( 'U' ), current_time( 'timestamp' ) ) )
 		);
 
-		echo ' <span class="posted-on">'. $time_string . '</span>'; // WPCS: XSS OK.
+		echo ' <span class="posted-on meta">'. $time_string . '</span>'; // WPCS: XSS OK.
 
 	}
 endif;
@@ -42,7 +59,7 @@ if ( ! function_exists( 'amaedoandre_posted_by' ) ) :
 			'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 		);
 
-		echo ' <span class="byline">' . $byline . '</span>'; // WPCS: XSS OK.
+		echo ' <span class="byline meta">' . $byline . '</span>'; // WPCS: XSS OK.
 
 	}
 endif;
@@ -133,22 +150,5 @@ if ( ! function_exists( 'amaedoandre_post_thumbnail' ) ) :
 		endif; // End is_singular().?>
 		</figure>
 		<?php
-	}
-endif;
-
-if ( ! function_exists( 'amaedoandre_posted_in' ) ) :
-	/**
-	 * Displays an optional post thumbnail.
-	 *
-	 * Wraps the post thumbnail in an anchor element on index views, or a div
-	 * element when on single views.
-	 */
-	function amaedoandre_posted_in() {
-		/* translators: used between list items, there is a space after the comma */
-		$categories_list = get_the_category_list( esc_html__( ', ', 'amaedoandre' ) );
-		if ( $categories_list ) {
-			/* translators: 1: list of categories. */
-			printf( '<span class="cat-links">' . esc_html__( 'In %1$s', 'amaedoandre' ) . '</span>', $categories_list ); // WPCS: XSS OK.
-		}
 	}
 endif;
