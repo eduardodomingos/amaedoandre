@@ -22,11 +22,7 @@
         'nav nav'
         'main sidebar'
         'footer footer'; 
-        max-width: rem(960px);
-    }
-    
-    @include mq($from: wide) {
-        max-width: rem(1140px);
+        max-width: rem(910px);
     }
 }
 
