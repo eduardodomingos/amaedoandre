@@ -52,10 +52,7 @@ if ( ! function_exists( 'amaedoandre_posted_by' ) ) :
 	 */
 	function amaedoandre_posted_by() {
 		$byline = sprintf(
-			/* translators: %s: post author. */
-			esc_html_x( '%1$sby%2$s %3$s', 'post author', 'amaedoandre' ),
-			'<span class="screen-reader-text">',
-			'</span>',
+			esc_html_x( 'Written by %s', 'post author', 'amaedoandre' ),
 			'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 		);
 
@@ -116,19 +113,16 @@ if ( ! function_exists( 'amaedoandre_edit_post_link' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'amaedoandre_entry_footer' ) ) :
+if ( ! function_exists( 'amaedoandre_entry_tags' ) ) :
 	/**
-	 * Prints HTML with meta information for the categories, tags and comments.
+	 * Prints HTML with meta information for the tags.
 	 */
-	function amaedoandre_entry_footer() {
-		// Hide category and tag text for pages.
-		if ( is_single() && 'post' === get_post_type() ) {
-			/* translators: used between list items, there is a space after the comma */
-			$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'amaedoandre' ) );
-			if ( $tags_list ) {
-				/* translators: 1: list of tags. */
-				printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'amaedoandre' ) . '</span>', $tags_list ); // WPCS: XSS OK.
-			}
+	function amaedoandre_entry_tags() {
+		/* translators: used between list items, there is a space after the comma */
+		$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'amaedoandre' ) );
+		if ( $tags_list ) {
+			/* translators: 1: list of tags. */
+			printf( '<span class="tags-links meta">' . esc_html__( 'Tags %1$s', 'amaedoandre' ) . '</span>', $tags_list ); // WPCS: XSS OK.
 		}
 	}
 endif;
