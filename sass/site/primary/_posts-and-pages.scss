@@ -20,3 +20,38 @@
 	clear: both;
 	margin:  rem(0 0 20px);
 }
+
+.entry-title {
+	font-size: rem(23px);
+	letter-spacing: rem(.8px);
+	margin: rem(0 0 4px);
+	a {
+		color: inherit;
+		@include attention() {
+			color: $gold-drop;
+		}
+	}
+}
+
+.entry-meta {
+	color: $dove-gray;
+	font-size: rem(12px);
+	.meta {
+		display: inline-block;
+		margin-right: rem(10px);
+	}
+
+	a {
+		color: $mine-shaft;
+		border-bottom: rem(1px dotted $dove-gray);
+		@include attention() {
+			color: $gold-drop;
+		}
+	}
+}
+
+.byline {
+	.archive-view & {
+		@include hide();
+	}
+}
