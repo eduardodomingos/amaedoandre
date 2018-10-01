@@ -3,7 +3,9 @@
 }
 
 .hentry {
-	margin: rem(0 0 20px);
+	margin-bottom: rem(40px);
+	padding-bottom: rem(40px);
+	border-bottom: rem(1px dotted $alto);
 }
 
 .updated:not(.published) {
@@ -19,6 +21,13 @@
 .page-links {
 	clear: both;
 	margin:  rem(0 0 20px);
+}
+
+.post-thumbnail {
+	img {
+		display: block;
+		border-radius: rem(10px);
+	}
 }
 
 .entry-title {
@@ -53,5 +62,11 @@
 .byline {
 	.archive-view & {
 		@include hide();
+	}
+}
+
+.entry-content {
+	*:last-child {
+		margin-bottom: 0;
 	}
 }
