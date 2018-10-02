@@ -148,3 +148,8 @@ if ( defined( 'JETPACK__VERSION' ) ) {
  * Comments custom walker.
  */
 require get_template_directory() . '/inc/walker-comment.php';
+
+/**
+ * Load custom widgets
+ */
+require get_template_directory() . "/widgets/recent-posts-enhanced.php";
