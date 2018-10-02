@@ -1,7 +1,7 @@
 a {
 	color: $gold-drop;
 	text-decoration: none;
-	transition: all .2s;
+	transition: $transition;
 
 	@include attention() {
 		color: $mine-shaft;
