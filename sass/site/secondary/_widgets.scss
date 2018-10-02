@@ -8,11 +8,6 @@
 	}
 }
 
-.widget-title {
-	font-family: $amatic;
-	font-size: rem(30px);
-}
-
 .widget_amaedoandre_recent_posts {
 	ul {
 		list-style: none;
@@ -28,6 +23,13 @@
 		padding-bottom: rem(12px);
 		border-bottom: rem(1px dotted $alto);
 		box-sizing: content-box;
+	}
+
+	a {
+		color: inherit;
+		@include attention() {
+			color: $gold-drop;
+		}
 	}
 
 	.post-icon img {
@@ -47,5 +49,18 @@
 		font-size: rem(13px);
 		color: $dove-gray;
 		margin-bottom: 0;
+	}
+}
+
+.widget_amaedoandre_blog_info {
+	text-align: center;
+	.photo {
+		width: rem(150px);
+		border-radius: 100%;
+		margin: 0 auto;
+		display: block;
+	}
+	.widget-title {
+		margin: rem(12px 0);
 	}
 }
