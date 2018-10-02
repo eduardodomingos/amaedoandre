@@ -12,19 +12,7 @@
 ?>
 
 	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'amaedoandre' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'amaedoandre' ), 'WordPress' );
-				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'amaedoandre' ), 'amaedoandre', '<a href="http://github.com/eduardodomingos">Eduardo Domingos</a>' );
-				?>
-		</div><!-- .site-info -->
+		<small><?php printf( esc_html__( '&copy; %1$s %2$s. All Rights Reserved.', 'amaedoandre' ), date('Y'), get_bloginfo( 'name' )); ?></small>
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 
