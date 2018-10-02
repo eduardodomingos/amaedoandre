@@ -144,3 +144,7 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+/**
+ * Comments custom walker.
+ */
+require get_template_directory() . '/inc/walker-comment.php';

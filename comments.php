@@ -26,25 +26,14 @@ if ( post_password_required() ) {
 	// You can start editing here -- including this comment!
 	if ( have_comments() ) :
 		?>
-		<h2 class="comments-title">
-			<?php
+		<h2 class="comments-title"><?php
 			$amaedoandre_comment_count = get_comments_number();
-			if ( '1' === $amaedoandre_comment_count ) {
-				printf(
-					/* translators: 1: title. */
-					esc_html__( 'One thought on &ldquo;%1$s&rdquo;', 'amaedoandre' ),
-					'<span>' . get_the_title() . '</span>'
-				);
-			} else {
-				printf( // WPCS: XSS OK.
-					/* translators: 1: comment count number, 2: title. */
-					esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', $amaedoandre_comment_count, 'comments title', 'amaedoandre' ) ),
-					number_format_i18n( $amaedoandre_comment_count ),
-					'<span>' . get_the_title() . '</span>'
-				);
-			}
-			?>
-		</h2><!-- .comments-title -->
+			printf( // WPCS: XSS OK.
+				/* translators: 1: comment count number, 2: title. */
+				esc_html( _nx( '%1$s comment', '%1$s comments', $amaedoandre_comment_count, 'comments title', 'amaedoandre' ) ),
+				number_format_i18n( $amaedoandre_comment_count )
+			);
+			?></h2><!-- .comments-title -->
 
 		<?php the_comments_navigation(); ?>
 
@@ -53,6 +42,8 @@ if ( post_password_required() ) {
 			wp_list_comments( array(
 				'style'      => 'ol',
 				'short_ping' => true,
+				'avatar_size' => 100,
+				'walker' => new Amaedoandre_Walker_Comment()
 			) );
 			?>
 		</ol><!-- .comment-list -->
@@ -68,7 +59,7 @@ if ( post_password_required() ) {
 		endif;
 
 	endif; // Check for have_comments().
-
+	
 	comment_form();
 	?>
 

@@ -4,3 +4,72 @@
 .bypostauthor {
 	display: block;
 }
+
+.comments-area {
+	font-size: rem(15px);
+}
+
+.comment-form {
+	label {
+		display: block;
+		font-weight: 700;
+		margin-bottom: rem(4px);
+	}
+
+	input[type="text"],
+	input[type="email"],
+	input[type="url"],
+	textarea {
+		width: 100%;
+	}
+}
+
+.comment-list {
+	list-style: none;
+	margin: rem(0 0 40px);
+	padding: 0;
+}
+
+.comment-body {
+	position: relative;
+	padding-left: rem(70px);
+	border-bottom: rem(1px dotted $alto);
+	margin-bottom: rem(20px);
+	.avatar {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: rem(50px);
+		border-radius: 100%;
+	}
+
+	.bypostauthor & {
+		padding: rem(20px 15px 20px 85px);
+		background: lighten($alto, 10%);
+		border-bottom: 0;
+		border-radius: $border-radius;
+		.avatar {
+			top: rem(20px);
+			left: rem(15px);
+		}
+	}
+}
+
+.comment-content {
+	.bypostauthor & {
+		> *:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.comment-metadata {
+	color: $dove-gray;
+	font-size: rem(13px);
+	margin-bottom: rem(6px);
+	> * + * {
+		&:before {
+			content: ' - ';
+		}
+	}
+}
