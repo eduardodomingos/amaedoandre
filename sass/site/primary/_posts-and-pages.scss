@@ -45,9 +45,12 @@
 .entry-meta {
 	color: $dove-gray;
 	font-size: rem(13px);
-	.meta {
-		display: inline-block;
-		margin-right: rem(18px);
+	.meta + .meta {
+		&:before {
+			padding: rem(0 8px);
+			content: '\2022';
+			opacity: .2;
+		}
 	}
 
 	a {
