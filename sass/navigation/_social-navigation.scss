@@ -1,0 +1,38 @@
+.social-menu {
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        justify-content: center;
+    }
+
+    li:not(:last-child) {
+        margin-right: rem(10px);
+    }
+
+    a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+		border: 1px solid;
+		border-color: $gold-drop;
+		border-radius: 100%;
+		line-height: rem(35px);
+        font-size: rem(14px);
+        width: rem(35px);
+        height: rem(35px);
+		cursor: pointer;
+		transition: $transition;
+		color: $gold-drop;
+		
+		@include attention() {
+            border-color: $mine-shaft;
+            color: $mine-shaft;
+		}
+    }
+
+    .icon {
+        position: static;
+    }
+}
