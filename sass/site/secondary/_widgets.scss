@@ -1,8 +1,51 @@
 .widget {
-	margin: 0 0 1.5em;
+	margin: rem(0 0 30px);
+	font-size: rem(14px);
 
 	/* Make sure select elements fit in widgets. */
 	select {
 		max-width: 100%;
+	}
+}
+
+.widget-title {
+	font-family: $amatic;
+	font-size: rem(30px);
+}
+
+.widget_amaedoandre_recent_posts {
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	li {
+		position: relative;
+		padding-left: rem(70px);
+		min-height: rem(50px);
+		margin-bottom: rem(12px);
+		padding-bottom: rem(12px);
+		border-bottom: rem(1px dotted $alto);
+		box-sizing: content-box;
+	}
+
+	.post-icon img {
+		width: rem(50px);
+		border-radius: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+
+	.post-title {
+		font-weight: 700;
+		margin-bottom: 0;
+	}
+
+	.post-date {
+		font-size: rem(13px);
+		color: $dove-gray;
+		margin-bottom: 0;
 	}
 }
