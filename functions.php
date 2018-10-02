@@ -45,6 +45,7 @@ if ( ! function_exists( 'amaedoandre_setup' ) ) :
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
 			'primary' => esc_html__( 'Primary', 'amaedoandre' ),
+			'social' => esc_html__( 'Social Media Menu', 'amaedoandre' )
 		) );
 
 		/*
@@ -150,6 +151,12 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 require get_template_directory() . '/inc/walker-comment.php';
 
 /**
+ * Load SVG icon functions.
+ */
+require get_template_directory() . '/inc/icon-functions.php';
+
+/**
  * Load custom widgets
  */
 require get_template_directory() . "/widgets/recent-posts-enhanced.php";
+require get_template_directory() . "/widgets/blog-info.php";
