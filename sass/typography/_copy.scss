@@ -16,12 +16,16 @@ dfn, cite, em, i {
 blockquote {
 	position: relative;
 	margin: rem(50px 0);
-	padding: rem(8px 65px);
+	padding: rem(25px 65px);
 	border-top: 1px dashed $alto;
 	border-bottom: 1px dashed $alto;
 	font-weight: 700;
 	font-size: rem(17px);
 	text-align: center;
+
+	> *:last-child {
+		margin-bottom: 0;
+	}
 
 	&:before {
 		position: absolute;
