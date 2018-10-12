@@ -162,3 +162,32 @@ if ( ! function_exists( 'amaedoandre_post_thumbnail' ) ) :
 		<?php
 	}
 endif;
+
+if ( ! function_exists( 'amaedoandre_share_this' ) ) :
+	/**
+	 * Displays the share buttons.
+	 */
+	function amaedoandre_share_this() {
+		$url = urlencode(get_the_permalink());
+		$title = urlencode(html_entity_decode(get_the_title(), ENT_COMPAT, 'UTF-8'));
+		?>
+		<div class="share-this">
+			<span class="label"><?php echo amaedoandre_get_svg( array( 'icon' => 'sharing' )); ?> Partilhe</span>
+			<ul>
+				<li>
+					<a class="share-facebook" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $url; ?>" target="_blank">
+						<?php echo amaedoandre_get_svg( array( 'icon' => 'facebook' )); ?>
+						<span class="screen-reader-text"><?php _e('Share', 'amaedoandre'); ?></span>
+					</a>
+				</li>
+				<li>
+				<a class="share-twitter" href="https://twitter.com/intent/tweet?text=<?php echo $title; ?>&amp;url=<?php echo $url; ?>&amp;via=amaedoandre" target="_blank">
+						<?php echo amaedoandre_get_svg( array( 'icon' => 'twitter' )); ?>
+						<span class="screen-reader-text"><?php _e('Tweet', 'amaedoandre'); ?></span>
+					</a>
+				</li>
+			</ul>
+		</div>
+	<?php
+	}
+endif;

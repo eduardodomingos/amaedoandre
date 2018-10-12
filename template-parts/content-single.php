@@ -44,4 +44,5 @@
 		) );
 		?>
 	</div><!-- .entry-content -->
+	<?php amaedoandre_share_this(); ?>
 </article><!-- #post-<?php the_ID(); ?> -->
