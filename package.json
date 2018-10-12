@@ -5,6 +5,7 @@
   "main": "index.php",
   "dependencies": {
     "sass-mq": "^5.0.0",
-    "sass-rem": "^2.0.1"
+    "sass-rem": "^2.0.1",
+    "sticky-kit": "^1.1.3"
   }
 }
