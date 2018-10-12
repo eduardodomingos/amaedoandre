@@ -5,10 +5,15 @@
     border-bottom: rem(1px solid $gold-drop);
     padding: rem(20px 0);
     background-color: $white;
-    position: sticky;
-    top: 0;
     font-size: rem(14px);
     z-index: 1;
+    transition: padding .3s;
+
+    &.is_stuck {
+        margin-left: rem(15px);
+        margin-right: rem(15px);
+        padding: rem(15px 0);
+    }
 
     .menu {
         list-style: none;
@@ -20,7 +25,7 @@
         }
 
         a {
-            color: $dove-gray;
+            color: $mine-shaft;
             @include attention() {
                 color: $gold-drop;
             }
