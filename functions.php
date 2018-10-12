@@ -108,9 +108,13 @@ function amaedoandre_scripts() {
 
 	wp_enqueue_style( 'amaedoandre-style', get_stylesheet_uri() );
 
-	wp_enqueue_script( 'amaedoandre-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+	wp_enqueue_script( 'amaedoandre-sticky-kit', get_template_directory_uri() . '/js/vendor/sticky-kit.js', array('jquery'), '20181012', true );
 
-	wp_enqueue_script( 'amaedoandre-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+	wp_enqueue_script( 'amaedoandre-script', get_template_directory_uri() . '/js/main.js', array('jquery'), '20181012', true );
+
+	// wp_enqueue_script( 'amaedoandre-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+
+	// wp_enqueue_script( 'amaedoandre-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
