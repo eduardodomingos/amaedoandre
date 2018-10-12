@@ -1,4 +1,26 @@
 .site-footer {
     padding: rem(20px 0);
     border-top: rem(1px dotted $alto);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    @include mq($from: desktop) {
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .to-top {
+        font-size: 80%;
+        border: transparent;
+        background: none;
+        margin-bottom: 10px;
+        @include attention() {
+            color: $gold-drop;
+        }
+
+        @include mq($from: desktop) {
+            margin-bottom: 0;
+        }
+    }
 }
