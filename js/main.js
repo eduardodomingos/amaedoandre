@@ -88,36 +88,5 @@
             dom.$nav_search_field.blur();
             dom.$nav_search_submit.blur();
         }
-
-
-
-
-        // $('.sb-search').on('click touchstart', function(e) {
-        //     e.stopPropagation();
-        //     if(!$(this).hasClass('sb-search-open')) {
-        //         e.preventDefault();
-        //         open();
-        //     } else if($(this).hasClass('sb-search-open') && $('.sb-search-input').val().length === 0) {
-        //         e.preventDefault();
-        //         close();
-        //     }
-        // });
-
-        // $('.sb-search-input').on('click touchstart', function(e) {
-        //     e.stopPropagation();
-        // });
-
-        // function open() {
-        //     $('.sb-search').addClass('sb-search-open');
-        //     $('.sb-search-input').focus();
-        //     $(document).on('click touchstart',function(){
-        //         close();
-        //         $(this).off('click touchstart');
-        //     });
-        // }
-        // function close() {
-        //     $('.sb-search').removeClass('sb-search-open');
-        //     $('.sb-search-input').blur();
-        // }
     });
 }(jQuery));
