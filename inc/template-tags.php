@@ -106,7 +106,7 @@ if ( ! function_exists( 'amaedoandre_edit_post_link' ) ) :
 				),
 				get_the_title()
 			),
-			'<span class="edit-link">',
+			'<span class="edit-link meta">',
 			'</span>'
 		);
 
