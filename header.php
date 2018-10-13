@@ -47,4 +47,7 @@
 			'container'			=> false,
 		) );
 		?>
+		<div id="nav-search">
+			<?php get_search_form(); ?>
+		</div><!-- #nav-search -->
 	</nav><!-- #site-navigation -->
