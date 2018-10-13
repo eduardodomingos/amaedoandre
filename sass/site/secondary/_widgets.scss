@@ -1,6 +1,9 @@
 .widget {
-	margin: rem(0 0 30px);
+	margin: rem(0 0 50px);
 	font-size: rem(14px);
+	padding: rem(20px 15px);
+	background: lighten($alto, 11%);
+	border-radius: $border-radius;
 
 	/* Make sure select elements fit in widgets. */
 	select {
@@ -62,5 +65,9 @@
 	}
 	.widget-title {
 		margin: rem(12px 0);
+	}
+
+	.text {
+		margin-bottom: rem(16px);
 	}
 }

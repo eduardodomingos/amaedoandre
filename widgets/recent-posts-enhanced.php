@@ -51,7 +51,7 @@ class amaedoandre_recent_posts extends WP_Widget {
 									?>
 								</div>
 								<p class="post-title"><?php the_title(); ?></p>
-								<p class="post-date"><?php printf( _x( '%s ago', '%s = human-readable time difference', 'your-text-domain' ), human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) ) ); ?></p>
+								<p class="post-date">há <?php echo human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) ); ?></p>
 							</a>
 						</li>
 

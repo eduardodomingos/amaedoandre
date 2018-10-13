@@ -28,11 +28,12 @@ if ( post_password_required() ) {
 		?>
 		<h2 class="comments-title"><?php
 			$amaedoandre_comment_count = get_comments_number();
-			printf( // WPCS: XSS OK.
-				/* translators: 1: comment count number, 2: title. */
-				esc_html( _nx( '%1$s comment', '%1$s comments', $amaedoandre_comment_count, 'comments title', 'amaedoandre' ) ),
-				number_format_i18n( $amaedoandre_comment_count )
-			);
+			if($amaedoandre_comment_count === '1') {
+				echo number_format_i18n( $amaedoandre_comment_count ) . ' comentário';
+			}
+			else {
+				echo number_format_i18n( $amaedoandre_comment_count ) . ' comentários';
+			}
 			?></h2><!-- .comments-title -->
 
 		<?php the_comments_navigation(); ?>

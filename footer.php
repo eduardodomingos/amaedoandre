@@ -12,8 +12,8 @@
 ?>
 
 	<footer id="colophon" class="site-footer">
-		<button id="js-to-top-button" class="to-top"><?php esc_html_e( 'Back to top', 'amaedoandre' ); ?> <?php echo amaedoandre_get_svg( array( 'icon' => 'arrow-up' )); ?></button>
-		<small><?php printf( esc_html__( '&copy; %1$s %2$s. All Rights Reserved.', 'amaedoandre' ), date('Y'), get_bloginfo( 'name' )); ?></small>
+		<button id="js-to-top-button" class="to-top">Voltar ao topo <?php echo amaedoandre_get_svg( array( 'icon' => 'arrow-up' )); ?></button>
+		<small>&copy; <?php echo  date('Y') . ' ' . get_bloginfo( 'name' ); ?>. Todos os Direitos Reservados</small>
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 

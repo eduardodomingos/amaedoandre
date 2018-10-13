@@ -19,7 +19,9 @@ if ( ! function_exists( 'amaedoandre_posted_in' ) ) :
 		$categories_list = get_the_category_list( esc_html__( ', ', 'amaedoandre' ) );
 		if ( $categories_list ) {
 			/* translators: 1: list of categories. */
-			printf( '<span class="cat-links meta">' . esc_html__( 'In %1$s', 'amaedoandre' ) . '</span>', $categories_list ); // WPCS: XSS OK.
+			?>
+			<span class="cat-links meta">Em <?php echo $categories_list; ?></span>
+			<?php
 		}
 	}
 endif;
@@ -36,9 +38,9 @@ if ( ! function_exists( 'amaedoandre_posted_on' ) ) :
 
 		$time_string = sprintf( $time_string,
 			esc_attr( get_the_date( DATE_W3C ) ),
-			sprintf( _x( '%s ago', '%s = human-readable time difference', 'amaedoandre' ), human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) ) ),
+			'há ' .human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) ),
 			esc_attr( get_the_modified_date( DATE_W3C ) ),
-			sprintf( _x( '%s ago', '%s = human-readable time difference', 'amaedoandre' ), human_time_diff( get_the_modified_time( 'U' ), current_time( 'timestamp' ) ) )
+			'há ' . human_time_diff( get_the_modified_time( 'U' ), current_time( 'timestamp' ) )
 		);
 
 		echo ' <span class="posted-on meta">'. $time_string . '</span>'; // WPCS: XSS OK.
@@ -94,18 +96,7 @@ if ( ! function_exists( 'amaedoandre_edit_post_link' ) ) :
 	 */
 	function amaedoandre_edit_post_link() {
 		edit_post_link(
-			sprintf(
-				wp_kses(
-					/* translators: %s: Name of current post. Only visible to screen readers */
-					__( 'Edit <span class="screen-reader-text">%s</span>', 'amaedoandre' ),
-					array(
-						'span' => array(
-							'class' => array(),
-						),
-					)
-				),
-				get_the_title()
-			),
+			'Editar',
 			'<span class="edit-link meta">',
 			'</span>'
 		);

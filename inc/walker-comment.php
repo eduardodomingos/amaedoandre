@@ -315,10 +315,7 @@ class Amaedoandre_Walker_Comment extends Walker {
 
                  <div class="comment-metadata">
                      
-                    <time datetime="<?php comment_time( 'c' ); ?>"><?php
-                            /* translators: 1: comment date, 2: comment time */
-                            printf( _x( '%s ago', '%s = human-readable time difference', 'amaedoandre' ), human_time_diff( get_comment_time( 'U' ), current_time( 'timestamp' ) ) );  
-                    ?></time>
+                    <time datetime="<?php comment_time( 'c' ); ?>"> há <?php echo human_time_diff( get_comment_time( 'U' ), current_time( 'timestamp' ) ); ?></time>
                     
                     <?php
                         comment_reply_link( array_merge( $args, array(

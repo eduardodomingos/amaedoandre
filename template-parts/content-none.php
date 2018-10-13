@@ -11,7 +11,7 @@
 
 <section class="no-results not-found">
 	<header class="page-header">
-		<h1 class="page-title"><?php esc_html_e( 'Nothing Found', 'amaedoandre' ); ?></h1>
+		<h1 class="page-title">Nenhum resultado encontrado</h1>
 	</header><!-- .page-header -->
 
 	<div class="page-content">
@@ -34,7 +34,7 @@
 		elseif ( is_search() ) :
 			?>
 
-			<p><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'amaedoandre' ); ?></p>
+			<p>Desculpe, mas não existe qualquer conteúdo com as palavras-chave que introduziu. Tente efetuar uma procura com outras palavras-chave.<br>Obrigado.</p>
 			<?php
 			get_search_form();
 
