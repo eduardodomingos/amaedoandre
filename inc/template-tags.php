@@ -173,15 +173,15 @@ if ( ! function_exists( 'amaedoandre_share_this' ) ) :
 		?>
 		<div class="share-this">
 			<span class="label"><?php echo amaedoandre_get_svg( array( 'icon' => 'sharing' )); ?> Partilhe</span>
-			<ul>
-				<li>
-					<a class="share-facebook" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $url; ?>" target="_blank">
+			<ul class="social-links">
+				<li class="facebook">
+					<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $url; ?>" target="_blank">
 						<?php echo amaedoandre_get_svg( array( 'icon' => 'facebook' )); ?>
 						<span class="screen-reader-text"><?php _e('Share', 'amaedoandre'); ?></span>
 					</a>
 				</li>
-				<li>
-				<a class="share-twitter" href="https://twitter.com/intent/tweet?text=<?php echo $title; ?>&amp;url=<?php echo $url; ?>&amp;via=amaedoandre" target="_blank">
+				<li class="twitter">
+					<a href="https://twitter.com/intent/tweet?text=<?php echo $title; ?>&amp;url=<?php echo $url; ?>&amp;via=amaedoandre" target="_blank">
 						<?php echo amaedoandre_get_svg( array( 'icon' => 'twitter' )); ?>
 						<span class="screen-reader-text"><?php _e('Tweet', 'amaedoandre'); ?></span>
 					</a>
