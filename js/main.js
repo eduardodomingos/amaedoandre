@@ -94,8 +94,9 @@
          * Carousel.
          */
         if(dom.$body.hasClass('single-post')) {
-            $(".slider").slick({
-                // nextArrow: '<button type="button" class="slick-prev"><svg><use href="#icon-search" xlink:href="#icon-search"></use></svg></button>',
+            $(".gallery").slick({
+                nextArrow: '<button type="button" class="slick-next" aria-label="Next"><svg class="icon"><use href="#icon-chevron-right" xlink:href="#icon-chevron-right"></use></svg></button>',
+                prevArrow: '<button type="button" class="slick-prev" aria-label="Previous"><svg class="icon"><use href="#icon-chevron-left" xlink:href="#icon-chevron-left"></use></svg></button>',
             });
         }
     });
