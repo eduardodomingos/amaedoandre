@@ -1,21 +1,6 @@
-.gallery {
-	margin-bottom: 1.5em;
-}
+$slick-font-path: "node_modules/slick-carousel/slick/fonts/";
+$slick-loader-path: "node_modules/slick-carousel/slick/";
+$slick-arrow-color: $black;
 
-.gallery-item {
-	display: inline-block;
-	text-align: center;
-	vertical-align: top;
-	width: 100%;
-
-	// Loops to enumerate the classes for gallery columns.
-	@for $i from 2 through 9 {
-		.gallery-columns-#{$i} & {
-			max-width: map-get( $columns, $i );
-		}
-	}
-}
-
-.gallery-caption {
-	display: block;
-}
+@import "../../node_modules/slick-carousel/slick/slick.scss";
+@import "../../node_modules/slick-carousel/slick/slick-theme.scss";

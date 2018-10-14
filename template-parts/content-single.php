@@ -30,18 +30,41 @@
 
 	<div class="entry-content">
 		<?php
-		the_content( sprintf(
-			wp_kses(
-				/* translators: %s: Name of current post. Only visible to screen readers */
-				__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'amaedoandre' ),
-				array(
-					'span' => array(
-						'class' => array(),
-					),
-				)
-			),
-			get_the_title()
-		) );
+		if( have_rows('content_blocks') ):
+			while ( have_rows('content_blocks') ) : the_row();
+				if( get_row_layout() == 'visual_editor' ):
+					the_sub_field('visual_editor_text');
+				elseif( get_row_layout() == 'gallery' ):
+					$images = get_sub_field('gallery_photos');
+					if( $images ): ?>
+						<div class="slider">
+							<?php foreach( $images as $image ): ?>
+								<div>
+									<figure>
+										<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
+										<?php if( $image['caption'] ): ?>
+										<figcaption><?php echo $image['caption']; ?></figcaption>
+										<?php endif; ?>
+									</figure>
+								</div>
+							<?php endforeach; ?>
+						</div><!-- .slider -->
+					<?php endif;
+				endif;
+			endwhile;
+		endif;
+		// the_content( sprintf(
+		// 	wp_kses(
+		// 		/* translators: %s: Name of current post. Only visible to screen readers */
+		// 		__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'amaedoandre' ),
+		// 		array(
+		// 			'span' => array(
+		// 				'class' => array(),
+		// 			),
+		// 		)
+		// 	),
+		// 	get_the_title()
+		// ) );
 		?>
 	</div><!-- .entry-content -->
 	<?php amaedoandre_share_this(); ?>

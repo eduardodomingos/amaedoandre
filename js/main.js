@@ -4,6 +4,7 @@
         var dom = {
             $window: $(window),
             $document: $(document),
+            $body: $('body'),
             $nav_search: $('#nav-search'),
             $nav_search_field: $('#nav-search .search-field'),
             $nav_search_submit: $('#nav-search .search-submit'),
@@ -87,6 +88,15 @@
             $(el).removeClass('search-open');
             dom.$nav_search_field.blur();
             dom.$nav_search_submit.blur();
+        }
+
+        /*
+         * Carousel.
+         */
+        if(dom.$body.hasClass('single-post')) {
+            $(".slider").slick({
+                // nextArrow: '<button type="button" class="slick-prev"><svg><use href="#icon-search" xlink:href="#icon-search"></use></svg></button>',
+            });
         }
     });
 }(jQuery));

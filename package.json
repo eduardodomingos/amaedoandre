@@ -7,6 +7,7 @@
     "imagesloaded": "^4.1.4",
     "sass-mq": "^5.0.0",
     "sass-rem": "^2.0.1",
+    "slick-carousel": "^1.8.1",
     "sticky-kit": "^1.1.3"
   }
 }
