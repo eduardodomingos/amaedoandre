@@ -37,13 +37,17 @@
 				elseif( get_row_layout() == 'gallery' ):
 					$images = get_sub_field('gallery_photos');
 					if( $images ): ?>
-						<div class="slider">
-							<?php foreach( $images as $image ): ?>
+						<?php $total_images = count( $images );?>
+						<div class="gallery">
+							<?php foreach( $images as $key => $image ): ?>
 								<div>
 									<figure>
-										<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
+										<img src="<?php echo $image['sizes']['gallery']; ?>" alt="<?php echo $image['alt']; ?>" />
 										<?php if( $image['caption'] ): ?>
-										<figcaption><?php echo $image['caption']; ?></figcaption>
+										<figcaption>
+											<span><?php echo $image['caption']; ?></span>
+											<span class="photo-index"><?php echo amaedoandre_get_svg( array( 'icon' => 'camera' )); ?> <?php echo ($key + 1) . '/' . $total_images; ?></span>
+										</figcaption>
 										<?php endif; ?>
 									</figure>
 								</div>
