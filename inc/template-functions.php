@@ -44,3 +44,8 @@ function amaedoandre_excerpt_more( $more ) {
 	return "…";
 }
 add_filter( 'excerpt_more', 'amaedoandre_excerpt_more' );
+
+/**
+ * Filters the width of an image’s caption, and remove the inline width style.
+ */
+add_filter( 'img_caption_shortcode_width', '__return_zero' );
