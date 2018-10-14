@@ -53,10 +53,9 @@ if ( ! function_exists( 'amaedoandre_posted_by' ) ) :
 	 * Prints HTML with meta information for the current author.
 	 */
 	function amaedoandre_posted_by() {
-		$byline = sprintf(
-			esc_html_x( 'Written by %s', 'post author', 'amaedoandre' ),
-			'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
-		);
+		
+
+		$byline = '<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>';
 
 		echo ' <span class="byline meta">' . $byline . '</span>'; // WPCS: XSS OK.
 
