@@ -7,7 +7,7 @@
             $body: $('body'),
             $nav_search: $('#nav-search'),
             $nav_search_field: $('#nav-search .search-field'),
-            $nav_search_submit: $('#nav-search .search-submit'),
+            $nav_search_submit: $('#nav-search .search-submit')
         };
         
         /*
@@ -18,7 +18,6 @@
         /*
          * Sticky Recent Posts Widget.
          */
-
         $('.sidebar').imagesLoaded( function() {
             // images have loaded
             var window_width = dom.$window.width();
@@ -91,13 +90,35 @@
         }
 
         /*
-         * Carousel.
+         * Gallery.
          */
         if(dom.$body.hasClass('single-post')) {
             $(".gallery").slick({
                 nextArrow: '<button type="button" class="slick-next" aria-label="Next"><svg class="icon"><use href="#icon-chevron-right" xlink:href="#icon-chevron-right"></use></svg></button>',
                 prevArrow: '<button type="button" class="slick-prev" aria-label="Previous"><svg class="icon"><use href="#icon-chevron-left" xlink:href="#icon-chevron-left"></use></svg></button>',
             });
+        }
+
+        /*
+         * Article share buttons.
+         */
+        if(dom.$body.hasClass('single-post')) {
+            var $share = $('.share-this'); // cache share
+            if ( $share.length ) {
+                // Facebook
+                $share.find('.facebook a').on('click', function(e){
+                    e.preventDefault();
+                    var href = $(this).attr('href');
+                    window.open(href, "Facebook", "toolbar=0,status=0,width=548,height=325");
+                });
+
+                // Twitter
+                $share.find('.twitter a').on('click', function(e){
+                    e.preventDefault();
+                    var href = $(this).attr('href');
+                    window.open(href, "Twitter", "toolbar=0,status=0,width=548,height=325");
+                });
+            }
         }
     });
 }(jQuery));
