@@ -33,7 +33,7 @@
 		if( have_rows('content_blocks') ):
 			while ( have_rows('content_blocks') ) : the_row();
 				if( get_row_layout() == 'visual_editor' ):
-					the_sub_field('visual_editor_text');
+					the_sub_field('visual_editor');
 				elseif( get_row_layout() == 'gallery' ):
 					$images = get_sub_field('gallery_photos');
 					if( $images ): ?>
