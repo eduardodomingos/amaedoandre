@@ -29,7 +29,7 @@
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
-		<?php the_excerpt(); ?>
+		<?php  echo wp_trim_words( amaedoandre_get_first_instance_of_content_block( get_the_ID() ) , 35, '...'  ); ?>
 	</div><!-- .entry-content -->
 
 </article><!-- #post-<?php the_ID(); ?> -->
