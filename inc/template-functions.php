@@ -68,3 +68,41 @@ $newtitle = implode(' ', $words); return $newtitle; }
 
 add_filter('the_title', 'lowertitle');
 add_filter('the_title', 'fixtitle');
+
+/*
+ * Returns the first instance of a given layout option
+ * https://gist.github.com/secretstache/9f0a93a9953361edb7bb
+ * @param - $id - the id of the post you are trying to target: '' by default
+ * @param - $fc_field - the name of the ACF flexible field: 'content_blocks' as the default
+ * @param - $fc_layout - the name of the flexible content layout: 'visual_editor' as the default
+ * @return - mixed
+ * @todo - test different types of returned content. at the moment, I am only using this for returning a string
+*/
+function amaedoandre_get_first_instance_of_content_block( $id = '', $fc_field = 'content_blocks', $fc_layout = 'visual_editor' ) {
+	
+	if ( class_exists('acf') ) { 
+	
+		if ( have_rows( $fc_field, $id ) ) { 
+		
+			$content_blocks = get_field( $fc_field, $id );
+			$content = array();
+		
+			foreach ( $content_blocks as $block ) {
+				if ( $block['acf_fc_layout'] == $fc_layout ) {
+					$content[] = $block[$fc_layout];
+				}
+			}
+		
+			reset($content);
+		
+			return $content[0];
+	
+		}
+	
+	} else {
+		
+		return '<p class="error">Advanced Custom Fields is required for <code>get_first_instance_of_content_block()</code> to work.</p>';
+		
+	}
+	
+}
