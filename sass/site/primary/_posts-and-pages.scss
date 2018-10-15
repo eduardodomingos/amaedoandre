@@ -47,7 +47,7 @@
 	display: flex;
 	.meta + .meta {
 		&:before {
-			padding: rem(0 4px);
+			padding: rem(0 6px);
 			content: '\2022';
 			opacity: .2;
 		}
