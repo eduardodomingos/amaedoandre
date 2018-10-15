@@ -44,9 +44,10 @@
 .entry-meta {
 	color: $dove-gray;
 	font-size: rem(14px);
+	display: flex;
 	.meta + .meta {
 		&:before {
-			padding: rem(0 8px);
+			padding: rem(0 4px);
 			content: '\2022';
 			opacity: .2;
 		}
