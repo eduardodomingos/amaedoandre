@@ -49,3 +49,22 @@ add_filter( 'excerpt_more', 'amaedoandre_excerpt_more' );
  * Filters the width of an image’s caption, and remove the inline width style.
  */
 add_filter( 'img_caption_shortcode_width', '__return_zero' );
+
+/**
+ * Fix Post Title Capitalization.
+ */
+function lowertitle($title)  {
+	$title = strtolower($title);
+	return $title;
+}
+	
+function fixtitle($title) {
+	$smallwordsarray = array( 'o', 'a', 'e', 'ou', 'de', 'da', 'das', 'do', 'dos' );
+	$words = explode(' ', $title); 
+	foreach ($words as $key => $word) {
+	if ($key == 0 or !in_array($word, $smallwordsarray)) $words[$key] = ucwords($word); 
+} 
+$newtitle = implode(' ', $words); return $newtitle; }
+
+add_filter('the_title', 'lowertitle');
+add_filter('the_title', 'fixtitle');
