@@ -30,9 +30,9 @@
 }
 
 .entry-title {
-	font-size: rem(23px);
-	letter-spacing: rem(.5px);
-	margin: rem(0 0 4px);
+	font-size: rem(32px);
+	margin: rem(0 0 8px);
+	line-height: 1.2;
 	a {
 		color: inherit;
 		@include attention() {
@@ -43,7 +43,7 @@
 
 .entry-meta {
 	color: $dove-gray;
-	font-size: rem(13px);
+	font-size: rem(14px);
 	.meta + .meta {
 		&:before {
 			padding: rem(0 8px);
