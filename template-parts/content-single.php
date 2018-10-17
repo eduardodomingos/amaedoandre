@@ -31,9 +31,14 @@
 	<div class="entry-content">
 		<?php
 		if( have_rows('content_blocks') ):
+			$row = 1;
 			while ( have_rows('content_blocks') ) : the_row();
 				if( get_row_layout() == 'visual_editor' ):
-					the_sub_field('visual_editor');
+					if($row == 1) {
+						echo preg_replace('/^((\S+\s+){2}\S+)/', '<b>$1</b>', get_sub_field('visual_editor'));
+					} else {
+						the_sub_field('visual_editor');
+					}
 				elseif( get_row_layout() == 'gallery' ):
 					$images = get_sub_field('gallery_photos');
 					if( $images ): ?>
@@ -55,6 +60,7 @@
 						</div><!-- .slider -->
 					<?php endif;
 				endif;
+				++$row;
 			endwhile;
 		endif;
 		// the_content( sprintf(
