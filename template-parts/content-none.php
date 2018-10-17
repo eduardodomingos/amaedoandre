@@ -18,7 +18,7 @@
 		<?php
 		if ( is_home() && current_user_can( 'publish_posts' ) ) :
 			?>
-			<p>Pronta para publicar o teu primeiro post? <a href="<?php echo esc_url( admin_url( 'post-new.php' ) ); ?>">Começa aqui</a>.</p>
+			<p>Pronta para publicar a tua primeira história? <a href="<?php echo esc_url( admin_url( 'post-new.php' ) ); ?>">Começa aqui</a>.</p>
 			<?php
 		elseif ( is_search() ) :
 			?>
