@@ -17,20 +17,9 @@
 	<div class="page-content">
 		<?php
 		if ( is_home() && current_user_can( 'publish_posts' ) ) :
-
-			printf(
-				'<p>' . wp_kses(
-					/* translators: 1: link to WP admin new post page. */
-					__( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'amaedoandre' ),
-					array(
-						'a' => array(
-							'href' => array(),
-						),
-					)
-				) . '</p>',
-				esc_url( admin_url( 'post-new.php' ) )
-			);
-
+			?>
+			<p>Pronta para publicar o teu primeiro post? <a href="<?php echo esc_url( admin_url( 'post-new.php' ) ); ?>">Começa aqui</a>.</p>
+			<?php
 		elseif ( is_search() ) :
 			?>
 
