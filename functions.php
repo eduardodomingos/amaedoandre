@@ -171,3 +171,4 @@ require get_template_directory() . '/inc/icon-functions.php';
  */
 require get_template_directory() . "/widgets/recent-posts-enhanced.php";
 require get_template_directory() . "/widgets/blog-info.php";
+require get_template_directory() . "/widgets/newsletter.php";

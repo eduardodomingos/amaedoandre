@@ -1370,6 +1370,10 @@ a:hover, a:active {
 	max-width: 100%;
 }
 
+.widget-title {
+	line-height: 1.2;
+}
+
 .widget_amaedoandre_recent_posts ul {
 	list-style: none;
 	margin: 0;
@@ -1430,6 +1434,28 @@ a:hover, a:active {
 
 .widget_amaedoandre_blog_info .text {
 	margin-bottom: 1.6rem;
+}
+
+.widget_amaedoandre_newsletter .widget-description,
+.widget_amaedoandre_newsletter .mc-field-group {
+	margin-bottom: 1rem;
+}
+
+.widget_amaedoandre_newsletter .email {
+	width: 100%;
+	height: 4rem;
+}
+
+.widget_amaedoandre_newsletter input[type="submit"] {
+	width: 100%;
+	min-height: 40px;
+	background-color: #f47e00;
+	color: #fff;
+	font-weight: 700;
+}
+
+.widget_amaedoandre_newsletter input[type="submit"]:hover, .widget_amaedoandre_newsletter input[type="submit"]:active, .widget_amaedoandre_newsletter input[type="submit"]:focus {
+	background-color: #e57600;
 }
 
 /*--------------------------------------------------------------

@@ -11,6 +11,10 @@
 	}
 }
 
+.widget-title {
+	line-height: 1.2;
+}
+
 .widget_amaedoandre_recent_posts {
 	ul {
 		list-style: none;
@@ -69,5 +73,28 @@
 
 	.text {
 		margin-bottom: rem(16px);
+	}
+}
+
+.widget_amaedoandre_newsletter {
+	.widget-description,
+	.mc-field-group {
+		margin-bottom: rem(10px);
+	}
+
+	.email {
+		width: 100%;
+		height: rem(40px);
+	}
+
+	input[type="submit"] {
+		width: 100%;
+		min-height: 40px;
+		background-color: $gold-drop;
+		color: $white;
+		font-weight: 700;
+		@include attention() {
+			background-color: darken($gold-drop, 3%);
+		}
 	}
 }
