@@ -2,6 +2,7 @@ a {
 	color: $gold-drop;
 	text-decoration: none;
 	transition: $transition;
+	cursor: pointer;
 
 	@include attention() {
 		color: $mine-shaft;
