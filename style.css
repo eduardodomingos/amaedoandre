@@ -684,6 +684,7 @@ a {
 	color: #f47e00;
 	text-decoration: none;
 	transition: all 0.2s ease-in;
+	cursor: pointer;
 }
 
 a:hover, a:active, a:focus {
@@ -714,7 +715,7 @@ a:hover, a:active {
 	height: 6rem;
 	background-color: #fff;
 	font-size: 1.4rem;
-	z-index: 1;
+	z-index: 2;
 	transition: height .3s;
 }
 
@@ -894,6 +895,79 @@ a:hover, a:active {
 .social-menu .social-links {
 	-ms-flex-pack: center;
 	    justify-content: center;
+}
+
+/*--------------------------------------------------------------
+# Cookie Consent
+--------------------------------------------------------------*/
+.cc-window {
+	position: fixed;
+	left: 0;
+	right: 0;
+	font-size: 1.4rem;
+	font-family: sans-serif;
+	background-color: #222;
+	color: #fff;
+	z-index: 9999;
+}
+
+.cc-window.cc-bottom {
+	bottom: 0;
+}
+
+.cc-window .cc-wrapper {
+	max-width: 54rem;
+	margin: 0 auto;
+	padding: 1.5rem;
+}
+
+@media (min-width: 48em) {
+	.cc-window .cc-wrapper {
+		max-width: 72rem;
+		display: -ms-flexbox;
+		display: flex;
+		-ms-flex-align: center;
+		    align-items: center;
+	}
+}
+
+@media (min-width: 62em) {
+	.cc-window .cc-wrapper {
+		max-width: 91rem;
+	}
+}
+
+.cc-window .cc-message {
+	margin-bottom: 1.5rem;
+	display: block;
+	text-align: center;
+}
+
+@media (min-width: 48em) {
+	.cc-window .cc-message {
+		text-align: left;
+		margin-right: 2rem;
+		margin-bottom: 0;
+	}
+}
+
+.cc-window .cc-compliance {
+	text-align: center;
+}
+
+.cc-window .cc-link:hover, .cc-window .cc-link:active, .cc-window .cc-link:focus {
+	color: #f47e00;
+	text-decoration: underline;
+}
+
+.cc-window .cc-btn {
+	display: inline-block;
+	background-color: #f47e00;
+	font-size: 1.4rem;
+	border-radius: 3px;
+	padding: 1rem 2.5rem;
+	font-size: 1.4rem;
+	color: #fff;
 }
 
 /*--------------------------------------------------------------

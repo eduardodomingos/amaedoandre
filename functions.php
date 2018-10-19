@@ -115,6 +115,8 @@ function amaedoandre_scripts() {
 
 	wp_enqueue_script( 'amaedoandre-slick-carousel', get_template_directory_uri() . '/js/vendor/slick.js', array('jquery'), '20181014', true );
 
+	wp_enqueue_script( 'amaedoandre-cookie-consent', get_template_directory_uri() . '/js/vendor/cookieconsent.js', array(), '20181019', true );
+
 	wp_enqueue_script( 'amaedoandre-script', get_template_directory_uri() . '/js/main.js', array('jquery'), '20181012', true );
 
 	// wp_enqueue_script( 'amaedoandre-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );

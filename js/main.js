@@ -9,6 +9,22 @@
             $nav_search_field: $('#nav-search .search-field'),
             $nav_search_submit: $('#nav-search .search-submit')
         };
+
+        /*
+         * Cookie Consent.
+         */
+        window.cookieconsent.initialise({
+            layout: 'amaedoandre-layout',
+            layouts: {
+                'amaedoandre-layout': '<div class="cc-wrapper">{{messagelink}}{{compliance}}</div>'
+            },
+            content: {
+                message: 'O meu blog utiliza cookies para lhe oferecer uma melhor experiência de navegação. Ao continuar a navegar estará a concordar com a sua utilização.',
+                dismiss: 'Aceitar',
+                link: 'Saiba mais',
+            }
+        });
+        
         
         /*
          * Sticky Site Navigation.

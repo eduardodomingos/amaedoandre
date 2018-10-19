@@ -1,0 +1,60 @@
+.cc-window {
+    position: fixed;
+    left: 0;
+    right: 0;
+    font-size: rem(14px);
+    font-family: sans-serif;
+    background-color: $mine-shaft;
+    color: $white;
+    z-index: 9999;
+    
+    &.cc-bottom {
+        bottom: 0;
+    }
+
+    .cc-wrapper {
+        max-width: rem(540px);
+        margin: 0 auto;
+        padding: rem(15px);
+        @include mq($from: tablet) {
+            max-width: rem(720px);
+            display: flex;
+            align-items: center;
+        }
+        @include mq($from: desktop) {
+            max-width: rem(910px);
+        }
+    }
+
+    .cc-message {
+        margin-bottom: rem(15px);
+        display: block;
+        text-align: center;
+        @include mq($from: tablet) {
+            text-align: left;
+            margin-right: rem(20px);
+            margin-bottom: 0;
+        }
+    }
+
+    .cc-compliance {
+        text-align: center;
+    }
+
+    .cc-link {
+        @include attention() {
+            color: $gold-drop;
+            text-decoration: underline;
+        }
+    }
+
+    .cc-btn {
+        display: inline-block;
+        background-color: $gold-drop;
+        font-size: rem(14px);
+        border-radius: $border-radius;
+        padding: rem(10px 25px);
+        font-size: rem(14px);
+        color: $white;
+    }
+}
