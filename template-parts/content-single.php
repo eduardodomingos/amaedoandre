@@ -12,6 +12,7 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
 		<?php amaedoandre_post_thumbnail(); ?>
+		<?php amaedoandre_posted_in(); ?>
 		<?php
 		the_title( '<h1 class="entry-title">', '</h1>' );
 
@@ -21,8 +22,6 @@
 				<?php
 				amaedoandre_posted_by();
 				amaedoandre_posted_on();
-				amaedoandre_posted_in();
-				amaedoandre_entry_tags();
 				?>
 			</div><!-- .entry-meta -->
 		<?php endif; ?>
@@ -63,19 +62,8 @@
 				++$row;
 			endwhile;
 		endif;
-		// the_content( sprintf(
-		// 	wp_kses(
-		// 		/* translators: %s: Name of current post. Only visible to screen readers */
-		// 		__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'amaedoandre' ),
-		// 		array(
-		// 			'span' => array(
-		// 				'class' => array(),
-		// 			),
-		// 		)
-		// 	),
-		// 	get_the_title()
-		// ) );
 		?>
 	</div><!-- .entry-content -->
+	<?php amaedoandre_entry_tags();?>
 	<?php amaedoandre_share_this(); ?>
 </article><!-- #post-<?php the_ID(); ?> -->
