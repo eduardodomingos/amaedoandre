@@ -19,7 +19,7 @@
                 'amaedoandre-layout': '<div class="cc-wrapper">{{messagelink}}{{compliance}}</div>'
             },
             content: {
-                message: 'O meu blog utiliza cookies para lhe oferecer uma melhor experiência de navegação. Ao continuar a navegar estará a concordar com a sua utilização.',
+                message: 'A Mãe do André utiliza cookies para lhe oferecer uma melhor experiência de navegação. Ao continuar a navegar estará a concordar com a sua utilização.',
                 dismiss: 'Aceitar',
                 link: 'Saiba mais',
             }
@@ -57,9 +57,7 @@
 
         function make_sticky() {
             $('.widget_amaedoandre_recent_posts').stick_in_parent({
-                offset_top: 70,
-                recalc_every: 10
-                
+                offset_top: 70
             });
         }
 
