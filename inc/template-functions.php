@@ -106,3 +106,40 @@ function amaedoandre_get_first_instance_of_content_block( $id = '', $fc_field = 
 	}
 	
 }
+
+/*
+ * Prefix tags with an # symbol
+*/
+add_filter( 'term_links-post_tag', function ( $links )
+{
+
+    // Return if $links are empty
+    if ( empty( $links ) )
+        return $links;
+
+    // Reset $links to an empty array
+    unset ( $links );
+    $links = [];
+
+    // Get the current post ID
+    $id = get_the_ID();
+    // Get all the tags attached to the post
+    $taxonomy = 'post_tag';
+	$terms = get_the_terms( $id, $taxonomy );
+	
+
+    // Make double sure we have tags
+    if ( !$terms )
+        return $links; 
+
+    // Loop through the tags and build the links
+    foreach ( $terms as $term ) {
+        $link = get_term_link( $term, $taxonomy );
+
+        // Here we add our hastag, so we get #Tag Name with link
+        $links[] = '<a href="' . esc_url( $link ) . '" rel="tag">#' . $term->name . '</a>';
+    }
+
+    return $links;
+});
+
