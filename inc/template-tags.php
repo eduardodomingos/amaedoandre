@@ -20,7 +20,7 @@ if ( ! function_exists( 'amaedoandre_posted_in' ) ) :
 		if ( $categories_list ) {
 			/* translators: 1: list of categories. */
 			?>
-			<span class="cat-links meta">Em <?php echo $categories_list; ?></span>
+			<span class="cat-links meta"><span class="screen-reader-text">Em</span> <?php echo $categories_list; ?></span>
 			<?php
 		}
 	}
