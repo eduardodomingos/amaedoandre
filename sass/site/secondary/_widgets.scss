@@ -89,12 +89,24 @@
 
 	input[type="submit"] {
 		width: 100%;
-		min-height: 40px;
-		background-color: $gold-drop;
-		color: $white;
-		font-weight: 700;
-		@include attention() {
-			background-color: darken($gold-drop, 3%);
+	}
+
+
+	.post-widgets & {
+		@include mq($from: tablet) {
+			form {
+				position: relative;
+			}
+			.email {
+				width: calc(100% - 140px);
+			}
+			
+			input[type="submit"] {
+				position: absolute;
+				right: 0;
+				top: 0;
+				width: 130px;
+			}
 		}
 	}
 }
