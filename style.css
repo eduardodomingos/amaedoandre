@@ -528,14 +528,16 @@ input[type="submit"] {
 	border: 1px solid;
 	border-color: #f47e00;
 	border-radius: 3px;
-	background: none;
+	background-color: #f47e00;
+	color: #fff;
 	line-height: 1;
 	padding: 1rem 1.5rem;
 	font-size: 1.4rem;
 	cursor: pointer;
 	transition: all 0.2s ease-in;
-	min-height: 4.8rem;
+	min-height: 4rem;
 	outline: 0;
+	font-weight: 700;
 }
 
 button:hover, button:active, button:focus,
@@ -548,8 +550,7 @@ input[type="reset"]:focus,
 input[type="submit"]:hover,
 input[type="submit"]:active,
 input[type="submit"]:focus {
-	background-color: #f47e00;
-	color: #fff;
+	background-color: #c16400;
 }
 
 input[type="text"],
@@ -650,12 +651,14 @@ textarea {
 	padding: 0;
 	border: 0;
 	background: #fff;
+	color: #222;
 	cursor: pointer;
+	border-radius: 0;
 }
 
 #nav-search .search-submit:hover, #nav-search .search-submit:active, #nav-search .search-submit:focus {
-	color: #f47e00;
-	background: #fff;
+	background: #f47e00;
+	color: #fff;
 }
 
 .search-form {
@@ -714,7 +717,7 @@ a:hover, a:active {
 	border-bottom: 0.1rem solid #f47e00;
 	height: 6rem;
 	background-color: #fff;
-	font-size: 1.4rem;
+	font-size: 1.5rem;
 	z-index: 2;
 	transition: height .3s;
 }
@@ -1147,10 +1150,30 @@ a:hover, a:active {
 	display: block;
 }
 
+.cat-links {
+	font-style: italic;
+	text-transform: uppercase;
+	font-size: 1.4rem;
+}
+
+.cat-links a {
+	color: inherit;
+}
+
+.cat-links a:hover, .cat-links a:active, .cat-links a:focus {
+	color: #f47e00;
+}
+
 .entry-title {
-	font-size: 3.2rem;
+	font-size: 3.5rem;
 	margin: 0 0 0.8rem;
 	line-height: 1.2;
+}
+
+@media (min-width: 48em) {
+	.entry-title {
+		font-size: 4rem;
+	}
 }
 
 .entry-title a {
@@ -1166,6 +1189,7 @@ a:hover, a:active {
 	font-size: 1.4rem;
 	display: -ms-flexbox;
 	display: flex;
+	font-style: italic;
 }
 
 .entry-meta .meta + .meta:before {
@@ -1193,10 +1217,6 @@ a:hover, a:active {
 	clip: rect(1px, 1px, 1px, 1px);
 }
 
-.entry-content > *:last-child {
-	margin-bottom: 0;
-}
-
 .entry-content h1 {
 	font-size: 2.3rem;
 }
@@ -1219,6 +1239,15 @@ a:hover, a:active {
 
 .entry-content h6 {
 	font-size: 1.6rem;
+}
+
+.archive-view .entry-content *:last-child {
+	margin-bottom: 0;
+}
+
+.tags-links {
+	font-style: italic;
+	font-size: 1.4rem;
 }
 
 .share-this {
@@ -1264,6 +1293,10 @@ a:hover, a:active {
 .comment-form input[type="url"],
 .comment-form textarea {
 	width: 100%;
+}
+
+.comment-form .form-submit {
+	text-align: right;
 }
 
 .comment-list {
@@ -1448,14 +1481,21 @@ a:hover, a:active {
 
 .widget_amaedoandre_newsletter input[type="submit"] {
 	width: 100%;
-	min-height: 40px;
-	background-color: #f47e00;
-	color: #fff;
-	font-weight: 700;
 }
 
-.widget_amaedoandre_newsletter input[type="submit"]:hover, .widget_amaedoandre_newsletter input[type="submit"]:active, .widget_amaedoandre_newsletter input[type="submit"]:focus {
-	background-color: #e57600;
+@media (min-width: 48em) {
+	.post-widgets .widget_amaedoandre_newsletter form {
+		position: relative;
+	}
+	.post-widgets .widget_amaedoandre_newsletter .email {
+		width: calc(100% - 140px);
+	}
+	.post-widgets .widget_amaedoandre_newsletter input[type="submit"] {
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 130px;
+	}
 }
 
 /*--------------------------------------------------------------
