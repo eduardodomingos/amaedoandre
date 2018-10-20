@@ -22,11 +22,13 @@ class amaedoandre_newsletter extends WP_Widget {
         // outputs the content of the widget
         if ( ! isset( $args['widget_id'] ) ) {
 			$args['widget_id'] = $this->id;
-        }
-        echo $args['before_widget'];
-        
+		}
+		extract($args); // Make before_widget, etc available.
+		
+		echo $before_widget;
+        echo  $before_title . 'Subscreva a Newsletter' . $after_title;
 		?>
-		<h2 class="widget-title">Subscreva a Newsletter</h2>
+
 		<p class="widget-description">Receba mensalmente no seu email uma selecção com as melhores histórias</p>
 		<!-- Begin Mailchimp Signup Form -->
 		<div id="mc_embed_signup">
@@ -50,7 +52,7 @@ class amaedoandre_newsletter extends WP_Widget {
 		<!--End mc_embed_signup-->
 		<?php
         
-        echo $args['after_widget'];
+        echo $after_widget;
 	}
 
 	/**
