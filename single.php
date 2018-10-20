@@ -17,6 +17,8 @@ get_header();
 		the_post();
 
 		get_template_part( 'template-parts/content', 'single' );
+		
+		get_sidebar('post');
 
 		// Previous/next post navigation.
 		$next_post = get_next_post();
