@@ -5,17 +5,18 @@ input[type="submit"] {
 	border: 1px solid;
 	border-color: $gold-drop;
 	border-radius: $border-radius;
-	background: none;
+	background-color: $gold-drop;
+	color: $white;
 	line-height: 1;
 	padding: rem(10px 15px);
 	font-size: rem(14px);
 	cursor: pointer;
 	transition: $transition;
-	min-height: rem(48px);
+	min-height: rem(40px);
 	outline: 0;
+	font-weight: 700;
 	
 	@include attention() {
-		background-color: $gold-drop;
-		color: $white;
+		background-color: darken($gold-drop, 10%);
 	}
 }

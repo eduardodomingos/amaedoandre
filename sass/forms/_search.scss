@@ -39,10 +39,12 @@
         padding: 0;
         border: 0;
         background: $white;
+        color: $gold-drop;
         cursor: pointer;
+        border-radius: 0;
         @include attention () {
-            color: $gold-drop;
-            background: $white;
+            background: $gold-drop;
+            color: $white;
         }
     }
 }
