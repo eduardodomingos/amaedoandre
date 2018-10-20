@@ -109,10 +109,11 @@ if ( ! function_exists( 'amaedoandre_entry_tags' ) ) :
 	 */
 	function amaedoandre_entry_tags() {
 		/* translators: used between list items, there is a space after the comma */
-		$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'amaedoandre' ) );
+		$tags_list = get_the_tag_list('',' ');
 		if ( $tags_list ) {
-			/* translators: 1: list of tags. */
-			printf( '<span class="tags-links meta">' . esc_html__( 'Tags %1$s', 'amaedoandre' ) . '</span>', $tags_list ); // WPCS: XSS OK.
+			?>
+			<p class="tags-links meta">Tags: <?php echo $tags_list?></p>
+			<?php
 		}
 	}
 endif;
