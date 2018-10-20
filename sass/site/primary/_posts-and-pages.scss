@@ -85,7 +85,6 @@
 }
 
 .entry-content {
-	
 	h1 {
 		font-size: rem(23px);
 	}
@@ -108,6 +107,11 @@
 	
 	h6 {
 		font-size: rem(16px);
+	}
+	.archive-view & {
+		*:last-child {
+			margin-bottom: 0;
+		}
 	}
 }
 
