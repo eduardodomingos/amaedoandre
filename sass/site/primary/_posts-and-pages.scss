@@ -31,6 +31,8 @@
 
 .cat-links {
 	font-style: italic;
+	text-transform: uppercase;
+	font-size: rem(14px);
 	a {
 		color: inherit;
 		@include attention() {
@@ -83,9 +85,6 @@
 }
 
 .entry-content {
-	> *:last-child {
-		margin-bottom: 0;
-	}
 	
 	h1 {
 		font-size: rem(23px);
@@ -110,6 +109,11 @@
 	h6 {
 		font-size: rem(16px);
 	}
+}
+
+.tags-links {
+	font-style: italic;
+	font-size: rem(14px);
 }
 
 .share-this {
