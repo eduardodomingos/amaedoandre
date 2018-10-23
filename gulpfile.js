@@ -36,12 +36,12 @@ gulp.task('sass', function() {
 // JavaScript
 gulp.task('js', function() {
   return gulp.src([
-		'./node_modules/cookieconsent/build/cookieconsent.min.js',
-		'./node_modules/imagesloaded/imagesloaded.pkgd.min.js',
-		'./node_modules/slick-carousel/slick/slick.min.js',
-		'./node_modules/sticky-kit/dist/sticky-kit.min.js',
-		'./js/app.js'
-	])
+    './node_modules/cookieconsent/build/cookieconsent.min.js',
+    './node_modules/imagesloaded/imagesloaded.pkgd.min.js',
+    './node_modules/slick-carousel/slick/slick.min.js',
+    './node_modules/sticky-kit/dist/sticky-kit.min.js',
+    './js/app.js'
+  ])
   .pipe(sourcemaps.init())
   .pipe(jshint())
   .pipe(jshint.reporter('default'))
@@ -65,8 +65,8 @@ gulp.task('watch', function() {
   browserSync.init({
     files: ['./**/*.php'],
     open: 'external',
-	proxy: 'amaedoandre.test',
-	port: 8080
+    proxy: 'amaedoandre.test',
+    port: 8080
   });
   gulp.watch('./sass/**/*.scss', ['sass', reload]);
   gulp.watch(['./js/*.js', '!./js/app.min.js'], ['js', reload]);
