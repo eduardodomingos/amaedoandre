@@ -7,9 +7,15 @@
     background-color: $mine-shaft;
     color: $white;
     z-index: 9999;
+    opacity: 1;
+    transition: opacity 1s ease;
     
     &.cc-bottom {
         bottom: 0;
+    }
+
+    &.cc-invisible {
+        opacity: 0;
     }
 
     .cc-wrapper {
