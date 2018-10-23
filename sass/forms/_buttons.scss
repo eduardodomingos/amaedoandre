@@ -17,6 +17,7 @@ input[type="submit"] {
 	font-weight: 700;
 	
 	@include attention() {
+		border-color: darken($gold-drop, 10%);
 		background-color: darken($gold-drop, 10%);
 	}
 }
