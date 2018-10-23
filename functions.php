@@ -69,6 +69,26 @@ endif;
 add_action( 'after_setup_theme', 'amaedoandre_setup' );
 
 /**
+ * Add preconnect for Google Fonts.
+ *
+ * @since Twenty Seventeen 1.0
+ *
+ * @param array  $urls           URLs to print for resource hints.
+ * @param string $relation_type  The relation type the URLs are printed.
+ * @return array $urls           URLs to print for resource hints.
+ */
+function amaedoandre_resource_hints( $urls, $relation_type ) {
+	if ( wp_style_is( 'amaedoandre-fonts', 'queue' ) && 'preconnect' === $relation_type ) {
+		$urls[] = array(
+			'href' => 'https://fonts.gstatic.com',
+			'crossorigin',
+		);
+	}
+	return $urls;
+}
+add_filter( 'wp_resource_hints', 'amaedoandre_resource_hints', 10, 2 );
+
+/**
  * Set the content width in pixels, based on the theme's design and stylesheet.
  *
  * Priority 0 to make it available to lower priority callbacks.
@@ -115,7 +135,7 @@ add_action( 'widgets_init', 'amaedoandre_widgets_init' );
  * Enqueue scripts and styles.
  */
 function amaedoandre_scripts() {
-	wp_enqueue_style( 'amaedoandre-google-fonts', '//fonts.googleapis.com/css?family=Amatic+SC:400,700|Lora:400,400i,700,700i' );
+	wp_enqueue_style( 'amaedoandre-fonts', '//fonts.googleapis.com/css?family=Amatic+SC:400,700|Lora:400,400i,700,700i' );
 
 	wp_enqueue_style( 'amaedoandre-css', get_stylesheet_uri() );
 
