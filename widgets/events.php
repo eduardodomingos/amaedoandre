@@ -23,63 +23,74 @@ class amaedoandre_events extends WP_Widget {
         if ( ! isset( $args['widget_id'] ) ) {
 			$args['widget_id'] = $this->id;
 		}
-		extract($args); // Make before_widget, etc available.
+        extract($args); // Make before_widget, etc available.
+        $widget_title = null;
+        $number_of_events = null;
+        $widget_title = esc_attr(apply_filters('widget_title', $instance['widget_title']));
+        $number_of_events = esc_attr($instance['number_of_events']);
 		
-		echo $before_widget;
-        echo  $before_title . 'Fora de Casa' . $after_title;
+        echo $before_widget;
+        if (!empty($widget_title)) {
+			echo $before_title . $widget_title . $after_title;
+		} else {
+			echo  $before_title . 'Eventos' . $after_title;
+		}
         
-        $today = current_time('Ymd');
-
-        
-        $args = array(
-            'post_type' => 'event',
-            'post_status' => 'publish',
-            'posts_per_page' => '5',
-            'meta_query' => array(
-                array(
-                    'key' => 'event_end_date',
-                    'compare' => '>=',
-                    'value' => $today,
-                )
-            ),
-            'meta_key' => 'event_end_date',
-            'orderby' => 'meta_value',
-            'order' => 'ASC',
-            'paged' => ( get_query_var('paged') ? get_query_var('paged') : 1 ),
-        );
-
-
-        $query = new WP_Query($args);
-
-        if ($query->have_posts()) : ?>
-        <ul>
-        <?php 
-            while ($query->have_posts()) : $query->the_post();
         ?>
-        <li>
-        <?php if(get_field('event_url')) : ?>
-            <p class="event-title"><a href="#"><?php the_title(); ?></a></p>
-        <?php else: ?>
-            <p class="event-title"><?php the_title(); ?></p>
-        <?php endif; ?>
-        <?php if(get_field('event_start_date') == get_field('event_end_date')): ?>
-            <p class="event-date"><?php the_field('event_start_date') ?><?php echo get_field('event_start_hour') ?  ' às ' . get_field('event_start_hour') : '' ?></p>
-        <?php else: ?>
-        <p class="event-date"><?php the_field('event_start_date'); ?> a <?php the_field('event_end_date'); ?></p>
-        <?php endif; ?>
-        <p class="event-location"><?php the_field('event_location'); ?></p>
-        </li>
+        <?php if( have_rows('event', 'widget_' . $widget_id) ): ?>
+            <?php 
+                $today = strtotime(current_time('Ymd'));
+                $dateformatstring = 'D, j M';
+                $i = 1;
+            ?>
+            <ul>
+            <?php while ( have_rows('event', 'widget_' . $widget_id) ) : the_row(); ?>
+                <?php if ($i <= $number_of_events): ?>
 
-    
-        <?php endwhile; ?>
-        </ul>
-        <?php else : ?>
-        <p>Estamos á procura de eventos para si!</p>
-        <?php endif; ?>
-        <?php wp_reset_postdata(); ?>
+                    <?php
+                    $event_url = get_sub_field('event_url', 'widget_' . $widget_id);
+                    $event_name = get_sub_field('event_name', 'widget_' . $widget_id);
+                    $event_photo = get_sub_field('event_photo', 'widget_' . $widget_id);
+                    $event_start_date = strtotime(get_sub_field('event_start_date', 'widget_' . $widget_id));
+                    $event_start_date_formatted = date_i18n($dateformatstring, $event_start_date);
+                    $event_end_date = strtotime(get_sub_field('event_end_date', 'widget_' . $widget_id));
+                    $event_end_date_formatted = date_i18n($dateformatstring, $event_end_date);
+                    $event_start_hour = get_sub_field('event_start_hour', 'widget_' . $widget_id);
+                    $event_location = get_sub_field('event_location', 'widget_' . $widget_id);
 
-		<?php
-        
+                    ?>
+                    <?php if ($event_end_date >= $today): ?>
+                        <li>
+                            <?php if( !empty($event_url) ): ?>
+                            <a href="<?php echo $event_url; ?>" target="_blank" title="<?php echo $event_name; ?>">
+                            <?php endif;?>
+
+                            <div class="event-photo">
+                            <?php echo wp_get_attachment_image( $event_photo, 'full' ); ?> 
+                            </div>
+
+                            <p class="event-title"><?php echo $event_name; ?></p>
+
+                            <?php if( $event_start_date == $event_end_date ): ?>
+                                <p class="event-meta"><?php echo amaedoandre_get_svg( array( 'icon' => 'calendar' )); ?> <?php echo $event_start_date_formatted; ?><?php echo $event_start_hour ?  ' às ' . $event_start_hour : '' ?></p>
+                            <?php else: ?>
+                                <p class="event-meta"><?php echo amaedoandre_get_svg( array( 'icon' => 'calendar' )); ?> <?php echo $event_start_date_formatted . ' a ' . $event_end_date_formatted; ?></p>
+                            <?php endif; ?>
+                            <p class="event-meta"><?php echo amaedoandre_get_svg( array( 'icon' => 'map-marker' )); ?> <?php echo $event_location; ?></p>
+
+                            <?php if( !empty($event_url) ): ?>
+                            </a>
+                            <?php endif;?>
+                        </li>
+                    <?php endif;?>
+
+                <?php endif;?>
+                <?php $i++; ?>
+            <?php endwhile; ?>
+            </ul>
+        <?php endif;
+
+
         echo $after_widget;
 	}
 
@@ -89,7 +100,26 @@ class amaedoandre_events extends WP_Widget {
 	 * @param array $instance The widget options
 	 */
 	public function form( $instance ) {
-		// outputs the options form on admin
+		// Set defaults
+        if(!isset($instance["widget_title"])) { $instance["widget_title"] = ''; }
+        if(!isset($instance["number_of_events"])) { $instance["number_of_events"] = '3'; }
+		// Get the options into variables, escaping html characters on the way
+        $widget_title = esc_attr($instance['widget_title']);
+        $number_of_events = esc_attr($instance['number_of_events']);
+		?>
+
+		<p>
+			<label for="<?php echo $this->get_field_id('widget_title'); ?>">Título:
+			<input id="<?php echo $this->get_field_id('widget_title'); ?>" name="<?php echo $this->get_field_name('widget_title'); ?>" type="text" class="widefat" value="<?php echo esc_attr($widget_title); ?>" /></label>
+        </p>
+        
+        <p>
+			<label for="<?php echo $this->get_field_id('number_of_events'); ?>">Número de eventos a mostrar:
+			<input id="<?php echo $this->get_field_id('number_of_events'); ?>" name="<?php echo $this->get_field_name('number_of_events'); ?>" type="text" class="widefat" value="<?php echo esc_attr($number_of_events); ?>" /></label>
+			<small>(Mostra 3 eventos por defeito)</small>
+		</p>
+
+		<?php
 	}
 
 	/**
@@ -101,7 +131,11 @@ class amaedoandre_events extends WP_Widget {
 	 * @return array
 	 */
 	public function update( $new_instance, $old_instance ) {
-		// processes widget options to be saved
+		$instance = $old_instance;
+        $instance['widget_title'] = strip_tags( $new_instance['widget_title'] );
+        $instance['number_of_events'] = is_int( intval( $new_instance['number_of_events'] ) ) ? intval( $new_instance['number_of_events']): 3;
+		//update and save the widget
+		return $instance;
 	}
 }
 register_widget('amaedoandre_events');
