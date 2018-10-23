@@ -117,21 +117,9 @@ add_action( 'widgets_init', 'amaedoandre_widgets_init' );
 function amaedoandre_scripts() {
 	wp_enqueue_style( 'amaedoandre-google-fonts', '//fonts.googleapis.com/css?family=Amatic+SC:400,700|Lora:400,400i,700,700i' );
 
-	wp_enqueue_style( 'amaedoandre-style', get_stylesheet_uri() );
+	wp_enqueue_style( 'amaedoandre-css', get_stylesheet_uri() );
 
-	wp_enqueue_script( 'amaedoandre-images-loaded', get_template_directory_uri() . '/js/vendor/imagesloaded.pkgd.js', array(), '20181013', true );
-
-	wp_enqueue_script( 'amaedoandre-sticky-kit', get_template_directory_uri() . '/js/vendor/sticky-kit.js', array('jquery'), '20181012', true );
-
-	wp_enqueue_script( 'amaedoandre-slick-carousel', get_template_directory_uri() . '/js/vendor/slick.js', array('jquery'), '20181014', true );
-
-	wp_enqueue_script( 'amaedoandre-cookie-consent', get_template_directory_uri() . '/js/vendor/cookieconsent.js', array(), '20181019', true );
-
-	wp_enqueue_script( 'amaedoandre-script', get_template_directory_uri() . '/js/main.js', array('jquery'), '20181012', true );
-
-	// wp_enqueue_script( 'amaedoandre-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
-
-	// wp_enqueue_script( 'amaedoandre-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+	wp_enqueue_script( 'amaedoandre-js', get_template_directory_uri() . '/js/app.min.js', array('jquery'), '20181012', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
