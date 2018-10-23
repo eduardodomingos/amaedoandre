@@ -143,3 +143,10 @@ add_filter( 'term_links-post_tag', function ( $links )
     return $links;
 });
 
+/*
+ * Disable Yoast SEO on Custom Post Type
+*/
+function my_remove_wp_seo_meta_box() {
+	remove_meta_box('wpseo_meta', 'event', 'normal');
+}
+add_action('add_meta_boxes', 'my_remove_wp_seo_meta_box', 100);
