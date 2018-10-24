@@ -34,20 +34,22 @@ class amaedoandre_events extends WP_Widget {
 			echo $before_title . $widget_title . $after_title;
 		} else {
 			echo  $before_title . 'Eventos' . $after_title;
-		}
-        
+        }
+
+        $no_events_msg = '<p class="no-events">Não existe nenhuma sugestão! Talvez queira <a href="mailto:' . get_bloginfo('admin_email') .'">sugerir uma!</a></p>';
         ?>
         <?php if( have_rows('event', 'widget_' . $widget_id) ): ?>
             <?php 
                 $today = strtotime(current_time('Ymd'));
                 $dateformatstring = 'D, j M';
                 $i = 1;
+                $has_events = false;
+                $markup = '';
             ?>
-            <ul>
-            <?php while ( have_rows('event', 'widget_' . $widget_id) ) : the_row(); ?>
-                <?php if ($i <= $number_of_events): ?>
 
-                    <?php
+            <?php while ( have_rows('event', 'widget_' . $widget_id) ) : the_row(); ?>
+                <?php
+                if ($i <= $number_of_events) {
                     $event_url = get_sub_field('event_url', 'widget_' . $widget_id);
                     $event_name = get_sub_field('event_name', 'widget_' . $widget_id);
                     $event_photo = get_sub_field('event_photo', 'widget_' . $widget_id);
@@ -58,39 +60,52 @@ class amaedoandre_events extends WP_Widget {
                     $event_start_hour = get_sub_field('event_start_hour', 'widget_' . $widget_id);
                     $event_location = get_sub_field('event_location', 'widget_' . $widget_id);
 
-                    ?>
-                    <?php if ($event_end_date >= $today): ?>
-                        <li>
-                            <?php if( !empty($event_url) ): ?>
-                            <a href="<?php echo $event_url; ?>" target="_blank" title="<?php echo $event_name; ?>">
-                            <?php endif;?>
+                    if ($event_end_date >= $today) {
+                        $has_events = true;
+                        $markup.='<li>';
+                        if( !empty($event_url) ) {
+                            $markup.= '<a href="'. $event_url .'" target="_blank" title="'.$event_name .'">';
+                        }
 
-                            <div class="event-photo">
-                            <?php echo wp_get_attachment_image( $event_photo, 'full' ); ?> 
-                            </div>
+                        $markup.= '<div class="event-photo">' .  wp_get_attachment_image( $event_photo, 'full' ) . '</div>';
 
-                            <p class="event-title"><?php echo $event_name; ?></p>
+                        $markup.= '<p class="event-title">' .  $event_name . '</p>';
+                        
+                        $markup.= '<p class="event-meta event-date">' . amaedoandre_get_svg( array( 'icon' => 'calendar' )) . ' ';
+                        if( !empty($event_start_date == $event_end_date) ) {
+                            $markup.= $event_start_date_formatted;
+                            if( !empty($event_start_hour ) ) {
+                                $markup.= ' às ' . $event_start_hour;
+                            }
+                        } else {
+                            $markup.= $event_start_date_formatted . ' a ' . $event_end_date_formatted;
+                        }
+                        $markup.= '</p>';
 
-                            <?php if( $event_start_date == $event_end_date ): ?>
-                                <p class="event-meta"><?php echo amaedoandre_get_svg( array( 'icon' => 'calendar' )); ?> <?php echo $event_start_date_formatted; ?><?php echo $event_start_hour ?  ' às ' . $event_start_hour : '' ?></p>
-                            <?php else: ?>
-                                <p class="event-meta"><?php echo amaedoandre_get_svg( array( 'icon' => 'calendar' )); ?> <?php echo $event_start_date_formatted . ' a ' . $event_end_date_formatted; ?></p>
-                            <?php endif; ?>
-                            <p class="event-meta"><?php echo amaedoandre_get_svg( array( 'icon' => 'map-marker' )); ?> <?php echo $event_location; ?></p>
+                        $markup.= '<p class="event-meta event-location">' . amaedoandre_get_svg( array( 'icon' => 'map-marker' )) . ' ' . $event_location . '</p>';
 
-                            <?php if( !empty($event_url) ): ?>
-                            </a>
-                            <?php endif;?>
-                        </li>
-                    <?php endif;?>
-
-                <?php endif;?>
-                <?php $i++; ?>
+                        if( !empty($event_url) ) {
+                            $markup.= '</a>';
+                        }
+                        $markup.='</li>';
+                    }
+                }
+                $i++;
+                ?>
             <?php endwhile; ?>
-            </ul>
-        <?php endif;
+            <?php
+                if($has_events) {
+                    echo '<ul>' . $markup . '</ul>';
+                } else {
+                    echo  $no_events_msg;
+                }
+            ?>
+            
+        <?php else: ?>
+            <?php echo $no_events_msg; ?>
+        <?php endif; ?>
 
-
+        <?php
         echo $after_widget;
 	}
 

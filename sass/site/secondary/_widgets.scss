@@ -107,6 +107,13 @@
 		margin-bottom: 0;
 		font-style: italic;
 	}
+
+	.no-events a {
+		color: $gold-drop;
+		@include attention() {
+			color: $mine-shaft;
+		}
+	}
 }
 
 .widget_amaedoandre_blog_info {
