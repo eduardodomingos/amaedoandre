@@ -28,13 +28,16 @@
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
+		<?php if(get_field('affiliate_links')): ?>
+			<p class="entry-disclosure"><?php the_field('affiliate_links_text', 'option'); ?></p>
+		<?php endif; ?>
 		<?php
 		if( have_rows('content_blocks') ):
 			$row = 1;
 			while ( have_rows('content_blocks') ) : the_row();
 				if( get_row_layout() == 'visual_editor' ):
 					if($row == 1) {
-						echo preg_replace('/^((\S+\s+){2}\S+)/', '<b>$1</b>', get_sub_field('visual_editor'));
+					echo preg_replace('/^<p>((\S+\s+){2}\S+)/', '<p><b>$1</b>', get_sub_field('visual_editor'));
 					} else {
 						the_sub_field('visual_editor');
 					}
