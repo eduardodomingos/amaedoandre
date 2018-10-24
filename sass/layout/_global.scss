@@ -6,7 +6,7 @@
     'main'
     'sidebar'
     'footer';
-    grid-gap: rem(30px);
+    grid-gap: rem(40px);
     max-width: rem(540px);
     margin: 0 auto;
     padding: rem(0 15px);
@@ -23,7 +23,7 @@
         'nav nav'
         'main sidebar'
         'footer footer'; 
-        max-width: rem(910px);
+        max-width: rem(990px);
     }
 }
 
