@@ -191,3 +191,18 @@ require get_template_directory() . "/widgets/recent-posts-enhanced.php";
 require get_template_directory() . "/widgets/blog-info.php";
 require get_template_directory() . "/widgets/newsletter.php";
 require get_template_directory() . "/widgets/events.php";
+
+/**
+ * ACF Options page
+ */
+if( function_exists('acf_add_options_page') ) {
+	
+	acf_add_options_page(array(
+		'page_title' 	=> 'Opções Gerais do Tema',
+		'menu_title'	=> 'Opções do Tema',
+		'menu_slug' 	=> 'theme-general-settings',
+		'capability'	=> 'edit_posts',
+		'redirect'		=> false
+	));
+	
+}
