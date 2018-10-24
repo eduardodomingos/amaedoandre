@@ -36,7 +36,7 @@ class amaedoandre_events extends WP_Widget {
 			echo  $before_title . 'Eventos' . $after_title;
         }
 
-        $no_events_msg = '<p class="no-events">Não existe nenhuma sugestão. Talvez queira <a href="mailto:' . get_bloginfo('admin_email') .'">sugerir uma</a>!</p>';
+        $no_events_msg = '<p class="no-events">Não existe nenhuma sugestão. Talvez queira <a href="mailto:' . get_bloginfo('admin_email') .'">sugerir uma!</a></p>';
         ?>
         <?php if( have_rows('event', 'widget_' . $widget_id) ): ?>
             <?php 
