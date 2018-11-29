@@ -69,20 +69,7 @@ if ( ! function_exists( 'amaedoandre_comments_link' ) ) :
 	function amaedoandre_comments_link() {
 		if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
 			echo '<span class="comments-link meta">';
-			comments_popup_link(
-				sprintf(
-					wp_kses(
-						/* translators: %s: post title */
-						__( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'amaedoandre' ),
-						array(
-							'span' => array(
-								'class' => array(),
-							),
-						)
-					),
-					get_the_title()
-				)
-			);
+			comments_popup_link(sprintf('Comentar<span class="screen-reader-text"> em %s</span>', get_the_title()));
 			echo '</span>';
 		}
 
