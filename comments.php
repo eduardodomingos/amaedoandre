@@ -55,13 +55,16 @@ if ( post_password_required() ) {
 		// If comments are closed and there are comments, let's leave a little note, shall we?
 		if ( ! comments_open() ) :
 			?>
-			<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'amaedoandre' ); ?></p>
+			<p class="no-comments">Comentários encerrados</p>
 			<?php
 		endif;
 
 	endif; // Check for have_comments().
 	
-	comment_form();
+	$args = array(
+		'title_reply' => 'Deixe um comentário'
+	);
+	comment_form($args);
 	?>
 
 </div><!-- #comments -->
