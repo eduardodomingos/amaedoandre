@@ -96,22 +96,27 @@
 	
 	h2 {
 		font-size: rem(22px);
+		margin-bottom: rem(11px);
 	}
 	
 	h3 {
 		font-size: rem(21px);
+		margin-bottom: rem(10px);
 	}
 	
 	h4 {
 		font-size: rem(20px);
+		margin-bottom: rem(10px);
 	}
 	
 	h5 {
 		font-size: rem(18px);
+		margin-bottom: rem(9px);
 	}
 	
 	h6 {
 		font-size: rem(16px);
+		margin-bottom: rem(8px);
 	}
 	.archive-view & {
 		*:last-child {
