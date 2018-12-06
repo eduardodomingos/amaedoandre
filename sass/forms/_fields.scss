@@ -19,6 +19,7 @@ textarea {
 	border-radius: $border-radius;
 	padding: rem(5px);
 	font-size: inherit;
+	-webkit-appearance: none;
 
 	&:focus {
 		color: $mine-shaft;
