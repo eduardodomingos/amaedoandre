@@ -17,6 +17,8 @@
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 
+<?php get_sidebar('menu');?>
+
 <?php wp_footer(); ?>
 
 </body>

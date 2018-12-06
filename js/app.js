@@ -29,7 +29,7 @@
         /*
          * Sticky Site Navigation.
          */
-        $("#site-navigation").stick_in_parent();
+        //$("#site-navigation").stick_in_parent();
 
         /*
          * Sticky Recent Posts Widget.

@@ -1,4 +1,15 @@
 .site-header {
+    height: 220px;
+    position: relative;
+}
+
+.site-header-overlay {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: $white;
 }
 
 .site-title {
@@ -16,5 +27,10 @@
 .site-branding {
     display: flex;
     justify-content: center;
-    padding-top: rem(30px);
+    align-items: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }

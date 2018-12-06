@@ -110,9 +110,9 @@ add_action( 'after_setup_theme', 'amaedoandre_content_width', 0 );
  */
 function amaedoandre_widgets_init() {
 	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'amaedoandre' ),
+		'name'          => 'Sidebar',
 		'id'            => 'sidebar-1',
-		'description'   => esc_html__( 'Add widgets here.', 'amaedoandre' ),
+		'description'   => 'Estes widgets aparecem na sidebar',
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',
@@ -120,9 +120,39 @@ function amaedoandre_widgets_init() {
 	) );
 
 	register_sidebar( array(
-		'name'          => esc_html__( 'Post Widgets', 'amaedoandre' ),
+		'name'          => 'Artigo',
 		'id'            => 'sidebar-2',
-		'description'   => esc_html__( 'Add post widgets here.', 'amaedoandre' ),
+		'description'   => 'Estes widgets aparecem no fundo do artigo',
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+
+	register_sidebar( array(
+		'name'          => 'Menu Esquerda',
+		'id'            => 'sidebar-3',
+		'description'   => 'Estes widgets aparecem na coluna esquerda',
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+
+	register_sidebar( array(
+		'name'          => 'Menu Centro',
+		'id'            => 'sidebar-4',
+		'description'   => 'Estes widgets aparecem na coluna central',
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+
+	register_sidebar( array(
+		'name'          => 'Menu Direita',
+		'id'            => 'sidebar-5',
+		'description'   => 'Estes widgets aparecem na coluna direita',
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',
@@ -150,7 +180,7 @@ add_action( 'wp_enqueue_scripts', 'amaedoandre_scripts' );
 /**
  * Implement the Custom Header feature.
  */
-require get_template_directory() . '/inc/custom-header.php';
+// require get_template_directory() . '/inc/custom-header.php';
 
 /**
  * Custom template tags for this theme.

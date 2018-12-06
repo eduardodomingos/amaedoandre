@@ -190,3 +190,30 @@
 		}
 	}
 }
+
+.widgetized-menu {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: $white;
+	z-index: 99;
+	overflow-y: scroll;
+	> div {
+		display: grid;
+		max-width: rem(540px);
+		margin: 0 auto;
+		padding: rem(0 15px);
+		grid-template-columns: minmax(0, 1fr);
+
+		@include mq($from: tablet) {
+			max-width: rem(720px);
+		}
+
+		@include mq($from: desktop) {
+			grid-template-columns: repeat(3, 1fr);
+			max-width: rem(990px);
+		}
+	}
+}

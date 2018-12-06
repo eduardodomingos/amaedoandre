@@ -21,10 +21,13 @@
 </head>
 
 <body <?php body_class(); ?>>
-<div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'amaedoandre' ); ?></a>
 
-	<header id="masthead" class="site-header">
+<div id="page" class="site">
+	<a class="skip-link screen-reader-text" href="#content">Ir para o conteúdo</a>
+
+
+	<header id="masthead" class="site-header" <?php echo get_field('custom_header_photo', 'option') ? 'style="background: url(' . get_field('custom_header_photo', 'option') . ') 50% 0px / cover no-repeat;"' : ''; ?> >
+		<div class="site-header-overlay" <?php echo get_field('custom_header_photo', 'option') ? 'style="opacity:'. get_field('custom_header_opacity', 'option')/100 .';"' : ''; ?>></div>
 		<div class="site-branding">
 			<?php
 			if ( is_front_page() && is_home() ) :
@@ -37,17 +40,7 @@
 				<?php
 			endif;?>
 		</div><!-- .site-branding -->
-	</header><!-- #masthead -->
 
-	<nav id="site-navigation" class="main-navigation">
-		<?php
-		wp_nav_menu( array(
-			'theme_location' 	=> 'primary',
-			'menu_id'        	=> 'primary-menu',
-			'container'			=> false,
-		) );
-		?>
-		<div id="nav-search">
-			<?php get_search_form(); ?>
-		</div><!-- #nav-search -->
-	</nav><!-- #site-navigation -->
+		<button class="menu-toggle"><?php echo amaedoandre_get_svg( array( 'icon' => 'menu' )); ?>Menu</button>
+
+	</header><!-- #masthead -->

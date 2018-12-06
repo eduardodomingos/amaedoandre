@@ -150,3 +150,21 @@ function my_remove_wp_seo_meta_box() {
 	remove_meta_box('wpseo_meta', 'event', 'normal');
 }
 add_action('add_meta_boxes', 'my_remove_wp_seo_meta_box', 100);
+
+
+/*
+ * Remove font-size inline style from tag cloud widget
+*/
+function amaedoandre_tag_cloud($string){
+   return preg_replace('/style="font-size:.+pt;"/', '', $string);
+}
+
+add_filter('wp_generate_tag_cloud', 'amaedoandre_tag_cloud',10,1); 
+
+
+function set_widget_tag_cloud_args($args) {
+	$my_args = array('format' => 'list', 'orderby'=>'name' );
+	$args = wp_parse_args( $args, $my_args );
+  return $args;
+  }
+  add_filter('widget_tag_cloud_args','set_widget_tag_cloud_args');
