@@ -29,7 +29,11 @@
 
 	<div class="entry-content">
 		<?php if(get_field('affiliate_links')): ?>
-			<p class="entry-disclosure"><?php the_field('affiliate_links_text', 'option'); ?></p>
+			<p class="entry-disclosure">Nota: <?php if( get_field('monetization_type') == 'voucher' ):
+				the_field('affiliate_links_voucher_text', 'option');
+			else:
+				the_field('affiliate_links_money_text', 'option');
+			endif; ?></p>
 		<?php endif; ?>
 		<?php
 		if( have_rows('content_blocks') ):
