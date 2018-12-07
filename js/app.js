@@ -28,8 +28,14 @@
         /*
          * Collapse Header
          */
+
+        function getBodyScrollTop () { 
+            var el = document.scrollingElement || document.documentElement;
+            return el.scrollTop; 
+        }
+
         dom.$window.scroll(function() {
-            if ($(window).scrollTop() > 200) {
+            if (getBodyScrollTop() > 200) {
                 dom.$header.addClass('collapsed');
             } else {
                 dom.$header.removeClass('collapsed');
@@ -40,7 +46,7 @@
          * Megamenu Toggling
          */
 
-        dom.$megamenu_toggle.click(function(){;
+        dom.$megamenu_toggle.click(function(){
             dom.$megamenu.toggleClass('active');
             if(dom.$megamenu.hasClass('active')) {
                 dom.$body.css("overflow-y", "hidden");
