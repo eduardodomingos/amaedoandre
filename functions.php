@@ -166,7 +166,6 @@ add_action( 'widgets_init', 'amaedoandre_widgets_init' );
  */
 function amaedoandre_scripts() {
 	wp_enqueue_style( 'amaedoandre-fonts', '//fonts.googleapis.com/css?family=Amatic+SC:400,700|Lora:400,400i,700,700i' );
-	wp_enqueue_style( 'amaedoandre-animatecss', '//cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css' );
 
 	wp_enqueue_style( 'amaedoandre-css', get_stylesheet_uri() );
 

@@ -10,14 +10,14 @@
  */
 
 ?>
-
+	</div><!-- .layout -->
 	<footer id="colophon" class="site-footer">
-		<button id="js-to-top-button" class="to-top">Voltar ao topo <?php echo amaedoandre_get_svg( array( 'icon' => 'arrow-up' )); ?></button>
-		<small>&copy; <?php echo  date('Y') . ' ' . get_bloginfo( 'name' ); ?>. Todos os Direitos Reservados</small>
+		<div class="container">
+			<button id="js-to-top-button" class="to-top">Voltar ao topo <?php echo amaedoandre_get_svg( array( 'icon' => 'arrow-up' )); ?></button>
+			<small>&copy; <?php echo  date('Y') . ' ' . get_bloginfo( 'name' ); ?>. Todos os Direitos Reservados</small>
+		</div><!-- .container -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
-
-<?php get_sidebar('menu');?>
 
 <?php wp_footer(); ?>
 

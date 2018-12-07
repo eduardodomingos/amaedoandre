@@ -1,13 +1,15 @@
 .site-footer {
-    padding: rem(20px 0);
-    border-top: rem(1px dotted $alto);
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    @include mq($from: desktop) {
-        flex-direction: row-reverse;
-        justify-content: space-between;
-        align-items: center;
+    > .container {
+        padding: rem(20px 0);
+        border-top: rem(1px dotted $alto);
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        @include mq($from: desktop) {
+            flex-direction: row-reverse;
+            justify-content: space-between;
+            align-items: center;
+        }
     }
 
     .to-top {
@@ -15,6 +17,7 @@
         border: transparent;
         background: none;
         margin-bottom: 10px;
+        color: $mine-shaft;
         @include attention() {
             color: $gold-drop;
         }
