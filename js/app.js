@@ -7,7 +7,8 @@
             $body: $('body'),
             $header: $('#masthead'),
             $megamenu_toggle: $('.megamenu-toggle'),
-            $megamenu: $('#mega-menu')
+            $megamenu: $('#mega-menu'),
+            $site_content: $('#site-content')
         };
 
         /*
@@ -45,13 +46,14 @@
         /*
          * Megamenu Toggling
          */
-
         dom.$megamenu_toggle.click(function(){
             dom.$megamenu.toggleClass('active');
             if(dom.$megamenu.hasClass('active')) {
-                dom.$body.css("overflow-y", "hidden");
+                dom.$body.attr( 'data-pos', getBodyScrollTop() ) ;
+                dom.$site_content.css("position", "fixed");
             } else {
-                dom.$body.css("overflow-y", "scroll");
+                dom.$site_content.css("position", "static");
+                dom.$window.scrollTop( dom.$body.attr( 'data-pos' ) );
             }
         });
 

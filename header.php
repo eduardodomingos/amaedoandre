@@ -56,4 +56,4 @@
 		</div><!-- .container -->
 	</header><!-- #masthead -->
 
-	<div class="container layout">
+	<div id="site-content" class="content container layout">
