@@ -26,8 +26,7 @@
 	<a class="skip-link screen-reader-text" href="#content">Ir para o conteúdo</a>
 
 
-	<header id="masthead" class="site-header" <?php echo get_field('custom_header_photo', 'option') ? 'style="background: url(' . get_field('custom_header_photo', 'option') . ') 50% 0px / cover no-repeat;"' : ''; ?> >
-		<div class="site-header-overlay" <?php echo get_field('custom_header_photo', 'option') ? 'style="opacity:'. get_field('custom_header_opacity', 'option')/100 .';"' : ''; ?>></div>
+	<header id="masthead" class="site-header">
 		<div class="site-branding">
 			<?php
 			if ( is_front_page() && is_home() ) :
@@ -41,6 +40,18 @@
 			endif;?>
 		</div><!-- .site-branding -->
 
-		<button class="widgetized-menu-toggle"><?php echo amaedoandre_get_svg( array( 'icon' => 'menu' )); ?>Menu</button>
+		<nav id="site-navigation" class="main-navigation">
+			<?php
+			wp_nav_menu( array(
+				'theme_location' 	=> 'primary',
+				'menu_id'        	=> 'primary-menu',
+				'container'			=> false,
+			) );
+			?>
+			
+			<button class="menu-toggle"><?php echo amaedoandre_get_svg( array( 'icon' => 'menu' )); ?><span class="screen-reader-text">Menu</span></button>
 
+		</nav><!-- #site-navigation -->
+
+	
 	</header><!-- #masthead -->

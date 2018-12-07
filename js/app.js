@@ -8,7 +8,7 @@
             $nav_search: $('#nav-search'),
             $nav_search_field: $('#nav-search .search-field'),
             $nav_search_submit: $('#nav-search .search-submit'),
-            $widgetized_menu_toggle: $('.widgetized-menu-toggle'),
+            $menu_toggle: $('.menu-toggle'),
             $widgetized_menu: $('.widgetized-menu'),
         };
 
@@ -31,10 +31,10 @@
          * Widgetized Menu Toggling.
          */
 
-        dom.$widgetized_menu_toggle.click(function(e) {
-            dom.$widgetized_menu.toggleClass('active');
-            dom.$body.toggleClass('no-scroll');
-        });
+        // dom.$menu_toggle.click(function(e) {
+        //     dom.$widgetized_menu.toggleClass('active');
+        //     dom.$body.toggleClass('no-scroll');
+        // });
 
 
         /*

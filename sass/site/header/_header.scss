@@ -1,5 +1,5 @@
 .site-header {
-    height: 220px;
+    height: 160px;
     position: relative;
 }
 
@@ -19,18 +19,14 @@
         font-size: 0;
         line-height: 0;
         background: url(images/dist/logo.svg) no-repeat;
-        width: rem(150px);
-        height: rem(100px);
+        width: rem(130px);
+        height: rem(90px);
     }
 } 
 
 .site-branding {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     position: absolute;
-    top: 0;
-    bottom: 0;
+    top: 50%;
     left: 0;
-    right: 0;
+    transform: translateY(-50%);
 }

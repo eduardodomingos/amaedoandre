@@ -191,28 +191,6 @@
 	}
 }
 
-.widgetized-menu-toggle {
-	position: absolute;
-	top: rem(10px);
-	left: 0;
-	font-size: rem(13px);
-	font-style: italic;
-	padding: rem(0 10px);
-	border: 0;
-	background-color: transparent;
-	color: $black;
-	text-transform: uppercase;
-	font-weight: normal;
-	@include attention() {
-		background-color: transparent;
-	}
-
-	.icon {
-		margin-right: rem(5px)  ;
-		font-size: rem(20px);
-	}
-}
-
 .widgetized-menu {
 	position: fixed;
 	top: 0;
