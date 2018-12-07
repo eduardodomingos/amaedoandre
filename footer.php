@@ -17,6 +17,8 @@
 			<small>&copy; <?php echo  date('Y') . ' ' . get_bloginfo( 'name' ); ?>. Todos os Direitos Reservados</small>
 		</div><!-- .container -->
 	</footer><!-- #colophon -->
+	<?php get_sidebar('mega-menu'); ?>
+
 </div><!-- #page -->
 
 <?php wp_footer(); ?>

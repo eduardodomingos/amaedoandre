@@ -1,48 +1,8 @@
-// .site {
-//     display: grid;
-//     grid-template-areas:
-//     'header'
-//     'main'
-//     'sidebar'
-//     'footer';
-//     grid-gap: rem(40px);
-//     max-width: rem(540px);
-//     margin: 0 auto;
-//     padding: rem(0 15px);
-//     grid-template-columns: minmax(0, 1fr);
-
-//     @include mq($from: tablet) {
-//         max-width: rem(720px);
-//     }
-
-//     @include mq($from: desktop) {
-//         grid-template-columns: $size__site-main $size__site-sidebar;
-//         grid-template-areas:
-//         'header header'
-//         'main sidebar'
-//         'footer footer'; 
-//         max-width: rem(990px);
-//     }
-// }
-
-// .site-header {
-//     grid-area: header;
-// }
-
-// .main-content {
-//     grid-area: main;
-// }
-
-// .sidebar {
-//     grid-area: sidebar;
-// }
-
-// .site-footer {
-//     grid-area: footer;
-// }
-
 body {
-    padding-top: rem($header-height + 60px);
+    padding-top: rem($header-height-mobile + 30px);
+    @include mq($from: tablet) {
+        padding-top: rem($header-height + 60px);
+    }
 }
 
 

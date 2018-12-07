@@ -50,7 +50,7 @@
 				) );
 				?>
 				
-				<button id="demo01" href="#animatedModal" class="menu-toggle"><?php echo amaedoandre_get_svg( array( 'icon' => 'menu' )); ?><span class="screen-reader-text">Menu</span></button>
+				<button class="megamenu-toggle"><?php echo amaedoandre_get_svg( array( 'icon' => 'menu' )); ?><span class="screen-reader-text">Menu</span></button>
 			</nav><!-- #site-navigation -->
 
 		</div><!-- .container -->

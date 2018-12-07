@@ -181,7 +181,7 @@ add_filter( 'wp_generate_tag_cloud_data', function( $tag_data )
     return array_map ( 
         function ( $item )
         {
-			$item['name'] = ucfirst($item['name']);
+			$item['name'] = '#'.ucfirst($item['name']);
             return $item;
         }, 
         (array) $tag_data 

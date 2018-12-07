@@ -52,7 +52,7 @@
 	a {
 		color: inherit;
 		@include attention() {
-			color: $gold-drop;
+			opacity: .7;
 		}
 	}
 }

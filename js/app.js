@@ -5,7 +5,9 @@
             $window: $(window),
             $document: $(document),
             $body: $('body'),
-            $header: $('#masthead')
+            $header: $('#masthead'),
+            $megamenu_toggle: $('.megamenu-toggle'),
+            $megamenu: $('#mega-menu')
         };
 
         /*
@@ -26,14 +28,29 @@
         /*
          * Collapse Header
          */
-
         dom.$window.scroll(function() {
             if ($(window).scrollTop() > 200) {
                 dom.$header.addClass('collapsed');
             } else {
                 dom.$header.removeClass('collapsed');
             }
-          });
+        });
+
+        /*
+         * Megamenu Toggling
+         */
+
+        dom.$megamenu_toggle.click(function(){;
+            dom.$megamenu.toggleClass('active');
+            if(dom.$megamenu.hasClass('active')) {
+                var oldWidth = dom.$body.innerWidth();
+                dom.$body.css("overflow-y", "hidden");
+                dom.$body.width(oldWidth);
+            } else {
+                dom.$body.css("overflow-y", "scroll");
+                dom.$body.width("auto");
+            }
+        });
 
 
         /*

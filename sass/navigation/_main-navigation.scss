@@ -1,47 +1,16 @@
-// .main-navigation {
-//     position: relative;
-//     display: flex;
-//     align-items: center;
-//     justify-content: center;
-//     border-top: rem(1px solid $gold-drop);
-//     border-bottom: rem(1px solid $gold-drop);
-//     height: rem(60px);
-//     background-color: $white;
-//     font-size: rem(15px);
-//     z-index: 2;
-//     transition: height .3s;
-
-//     &.is_stuck {
-//         margin-left: rem(15px);
-//         margin-right: rem(15px);
-//     }
-
-//     .menu {
-//         list-style: none;
-//         margin: 0;
-//         display: flex;
-
-//         > li:not(:last-child) {
-//             margin-right: rem(20px);
-//         }
-
-//         a {
-//             color: $mine-shaft;
-//             @include attention() {
-//                 color: $gold-drop;
-//             }
-//         }
-//     }
-// }
 
 
 .main-navigation {
     position: absolute;
     top: 50%;
-    right: 0;
+    left: rem(7px);
     transform: translateY(-50%);
     display: flex;
     align-items: center;
+    @include mq($from: tablet) {
+        left: auto;
+        right: 0;
+    }
     .menu {
         display: none;
         list-style: none;
@@ -49,7 +18,7 @@
         a {
             color: $mine-shaft;
             @include attention() {
-                color: $gold-drop;
+                opacity: .7;
             }
         }
         @include mq($from: tablet) {
@@ -57,20 +26,6 @@
             > li{
                 margin-right: rem(30px);
             }
-        }
-    }
-
-    .menu-toggle {
-        border: 0;
-        background-color: transparent;
-        color: $black;
-        text-transform: uppercase;
-        font-weight: normal;
-        font-size: rem(20px);
-        width: rem(40px);
-        padding: 0;
-        @include attention() {
-            background-color: transparent;
         }
     }
 }

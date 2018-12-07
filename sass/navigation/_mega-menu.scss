@@ -1,0 +1,90 @@
+#mega-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 0;
+    overflow-y: auto;
+    z-index: 99;
+    background: $white;
+    opacity: 0;
+    transition: opacity .3s, height 0s .3s;
+    
+    &.active {
+        opacity: 1;
+        transition: height 0s, opacity .3s;
+        height: 100vh;
+    }
+    .container {
+        padding-top: rem(90px);
+        padding-bottom: rem(90px);
+
+        
+        position: relative;
+        > div {
+            > div {
+                min-width: 0;
+            }
+            @include mq($from: desktop) {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                grid-gap: rem(40px);
+            }
+        }
+    }
+
+    .widget {
+        padding: 0;
+        margin-bottom: rem(30px);
+        .widget-title {
+            text-align-last: left;
+        }
+
+        ul {
+            list-style: none;
+            margin: 0;
+            li {
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap;
+                max-width: 100%;
+            }
+            a {
+                display: inline-block;
+                width: 100%;
+                padding: rem(2px 0);
+				border-bottom: 1px solid $mercury;
+                color: $mine-shaft;
+                @include attention() {
+                    color: $gold-drop;
+                }
+            }
+        }
+    }
+}
+
+.megamenu-toggle {
+    border: 0;
+    background-color: transparent;
+    text-transform: uppercase;
+    font-weight: normal;
+    font-size: rem(20px);
+    width: rem(40px);
+    padding: 0;
+
+    color: $mine-shaft;
+    @include attention() {
+        background-color: transparent;
+        opacity: .7;
+    }
+
+    #mega-menu & {
+        position: absolute;
+        top: rem(25px);
+        left: 7px;
+        @include mq($from: tablet) {
+            left: auto;
+            right: 0;
+        }
+    }
+}

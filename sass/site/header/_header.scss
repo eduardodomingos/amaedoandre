@@ -1,16 +1,17 @@
 .site-header {
-    height: rem($header-height);
+    height: rem($header-height-mobile);
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
+    width: 100%;
     background-color: $white;
     box-shadow: 1px 1px 40px rgba($black,0.4);
     transition: $transition;
     z-index: 2;
-    .logged-in & {
-        top: 32px;
+    @include mq($from: tablet) {
+        height: rem($header-height);
     }
+
     .container {
         position: relative;
         height: 100%;
@@ -22,24 +23,33 @@
 }
 
 .site-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     margin: 0;
+    
+    @include mq($from: tablet) {
+        left: 0;
+        transform: translate(0%, -50%);
+    }
+
     a {
         display: block;
         font-size: 0;
         line-height: 0;
         background: url(images/dist/logo.svg) no-repeat;
-        width: rem(130px);
-        height: rem(90px);
+        width: rem(100px);
+        height: rem(70px);
+
+        @include mq($from: tablet) {
+            width: rem(120px);
+            height: rem(80px);
+        }
+        
         .collapsed & {
             width: rem(80px);
             height: rem(50px);
         }
     }
 } 
-
-.site-title {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
-}
