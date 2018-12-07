@@ -1,63 +1,82 @@
-#nav-search {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 0%;
-    min-width: rem(58px);
-    height: rem(58px);
-    overflow: hidden;
-    transition: width 0.3s;
-    -webkit-backface-visibility: hidden;
-    &.search-open {
-        width: 100%;
-    }
+// #nav-search {
+//     position: absolute;
+//     top: 0;
+//     right: 0;
+//     width: 0%;
+//     min-width: rem(58px);
+//     height: rem(58px);
+//     overflow: hidden;
+//     transition: width 0.3s;
+//     -webkit-backface-visibility: hidden;
+//     &.search-open {
+//         width: 100%;
+//     }
 
-    .search-form {
-        display: initial;
-    }
+//     .search-form {
+//         display: initial;
+//     }
 
-    input[type="search"].search-field {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        border: none;
-        outline: none;
-        width: 100%;
-        height: auto;
-    }
+//     input[type="search"].search-field {
+//         position: absolute;
+//         top: 0;
+//         right: 0;
+//         bottom: 0;
+//         border: none;
+//         outline: none;
+//         width: 100%;
+//         height: auto;
+//     }
     
-    .search-submit {
-        position: absolute;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        width: rem(58px);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 0;
-        border: 0;
-        background: $white;
-        color: $mine-shaft;
-        cursor: pointer;
-        border-radius: 0;
-        @include attention () {
-            background: $gold-drop;
-            color: $white;
-        }
-    }
-}
+//     .search-submit {
+//         position: absolute;
+//         right: 0;
+//         top: 0;
+//         bottom: 0;
+//         width: rem(58px);
+//         display: flex;
+//         justify-content: center;
+//         align-items: center;
+//         padding: 0;
+//         border: 0;
+//         background: $white;
+//         color: $mine-shaft;
+//         cursor: pointer;
+//         border-radius: 0;
+//         @include attention () {
+//             background: $gold-drop;
+//             color: $white;
+//         }
+//     }
+// }
+
+// .search-form {
+//     display: flex;
+//     justify-content: space-between;
+
+//     .search-field {
+//         width: calc(100% - 52px);
+//         height: rem(48px);
+//     }
+//     .search-submit {
+//         width: rem(48px);
+//     }
+// }
 
 .search-form {
     display: flex;
-    justify-content: space-between;
-
     .search-field {
-        width: calc(100% - 52px);
-        height: rem(48px);
+        width: 85%;
+        border-radius: $border-radius 0 0 $border-radius;
     }
     .search-submit {
-        width: rem(48px);
+        width: 15%;
+        padding: 0;
+        border-radius: 0 $border-radius $border-radius 0;
+        border: 0;
+        background-color: lighten($black, 20%);
+        min-height: auto;
+        @include attention() {
+            background-color: $black;
+        }
     }
 }

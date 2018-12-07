@@ -7,7 +7,9 @@
             $body: $('body'),
             $nav_search: $('#nav-search'),
             $nav_search_field: $('#nav-search .search-field'),
-            $nav_search_submit: $('#nav-search .search-submit')
+            $nav_search_submit: $('#nav-search .search-submit'),
+            $widgetized_menu_toggle: $('.widgetized-menu-toggle'),
+            $widgetized_menu: $('.widgetized-menu'),
         };
 
         /*
@@ -25,7 +27,16 @@
             }
         });
         
-        
+        /*
+         * Widgetized Menu Toggling.
+         */
+
+        dom.$widgetized_menu_toggle.click(function(e) {
+            dom.$widgetized_menu.toggleClass('active');
+            dom.$body.toggleClass('no-scroll');
+        });
+
+
         /*
          * Sticky Site Navigation.
          */
@@ -73,35 +84,35 @@
          * Search form.
          * Based on: https://tympanus.net/codrops/2013/06/26/expanding-search-bar-deconstructed/
          */
-        dom.$nav_search.on('click touchstart', function(e) {
-            e.stopPropagation();
-            if(!$(this).hasClass('search-open')) {
-                e.preventDefault();
-                open_nav_search(this);
-            } else if($(this).hasClass('search-open') && dom.$nav_search_field.val().length === 0) {
-                e.preventDefault();
-                close_nav_search(this);
-            }
-        });
+        // dom.$nav_search.on('click touchstart', function(e) {
+        //     e.stopPropagation();
+        //     if(!$(this).hasClass('search-open')) {
+        //         e.preventDefault();
+        //         open_nav_search(this);
+        //     } else if($(this).hasClass('search-open') && dom.$nav_search_field.val().length === 0) {
+        //         e.preventDefault();
+        //         close_nav_search(this);
+        //     }
+        // });
 
-        dom.$nav_search_field.on('click touchstart', function(e) {
-            e.stopPropagation();
-        });
+        // dom.$nav_search_field.on('click touchstart', function(e) {
+        //     e.stopPropagation();
+        // });
 
-        function open_nav_search(el) {
-            $(el).addClass('search-open');
-            dom.$nav_search_field.focus();
-            dom.$document.on('click touchstart',function(){
-                close_nav_search(el);
-                $(this).off('click touchstart');
-            });
-        }
+        // function open_nav_search(el) {
+        //     $(el).addClass('search-open');
+        //     dom.$nav_search_field.focus();
+        //     dom.$document.on('click touchstart',function(){
+        //         close_nav_search(el);
+        //         $(this).off('click touchstart');
+        //     });
+        // }
 
-        function close_nav_search(el) {
-            $(el).removeClass('search-open');
-            dom.$nav_search_field.blur();
-            dom.$nav_search_submit.blur();
-        }
+        // function close_nav_search(el) {
+        //     $(el).removeClass('search-open');
+        //     dom.$nav_search_field.blur();
+        //     dom.$nav_search_submit.blur();
+        // }
 
         /*
          * Gallery.

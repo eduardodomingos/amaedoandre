@@ -191,6 +191,28 @@
 	}
 }
 
+.widgetized-menu-toggle {
+	position: absolute;
+	top: rem(10px);
+	left: 0;
+	font-size: rem(13px);
+	font-style: italic;
+	padding: rem(0 10px);
+	border: 0;
+	background-color: transparent;
+	color: $black;
+	text-transform: uppercase;
+	font-weight: normal;
+	@include attention() {
+		background-color: transparent;
+	}
+
+	.icon {
+		margin-right: rem(5px)  ;
+		font-size: rem(20px);
+	}
+}
+
 .widgetized-menu {
 	position: fixed;
 	top: 0;
@@ -200,20 +222,67 @@
 	background-color: $white;
 	z-index: 99;
 	overflow-y: scroll;
-	> div {
-		display: grid;
+	display: none;
+	&.active {
+		display: block;
+	}
+
+	.widgetized-menu__wrapper {
+		position: relative;
 		max-width: rem(540px);
 		margin: 0 auto;
-		padding: rem(0 15px);
-		grid-template-columns: minmax(0, 1fr);
-
+		padding: rem(80px 15px);
 		@include mq($from: tablet) {
 			max-width: rem(720px);
 		}
-
+	
 		@include mq($from: desktop) {
-			grid-template-columns: repeat(3, 1fr);
 			max-width: rem(990px);
 		}
+	}
+
+	.widgetized-menu__grid {
+		display: grid;
+		grid-gap: rem(40px);
+		grid-template-columns: minmax(0, 1fr);
+	
+		@include mq($from: desktop) {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+
+	.widgetized-menu__grid-item {
+		overflow: hidden;
+	}
+
+	.widget {
+		margin-bottom: rem(30px);
+		padding: 0;
+		background: transparent;
+
+		ul {
+			list-style: none;
+			margin: 0;
+			li {
+				padding: rem(2px 0);
+				border-bottom: 1px solid $mercury;
+				text-overflow: ellipsis;
+				overflow: hidden;
+				white-space: nowrap;
+				max-width: 100%;
+			}
+		}
+
+		a {
+			color: $mine-shaft;
+			@include attention() {
+			color: $gold-drop;
+			}
+		}
+	}
+
+	.widget-title {
+		margin-bottom: rem(10px);
+		text-align-last: left;
 	}
 }

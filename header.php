@@ -41,6 +41,6 @@
 			endif;?>
 		</div><!-- .site-branding -->
 
-		<button class="menu-toggle"><?php echo amaedoandre_get_svg( array( 'icon' => 'menu' )); ?>Menu</button>
+		<button class="widgetized-menu-toggle"><?php echo amaedoandre_get_svg( array( 'icon' => 'menu' )); ?>Menu</button>
 
 	</header><!-- #masthead -->

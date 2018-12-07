@@ -156,15 +156,35 @@ add_action('add_meta_boxes', 'my_remove_wp_seo_meta_box', 100);
  * Remove font-size inline style from tag cloud widget
 */
 function amaedoandre_tag_cloud($string){
-   return preg_replace('/style="font-size:.+pt;"/', '', $string);
-}
+	
 
+
+	return preg_replace('/style="font-size:.+pt;"/', '', $string);
+}
 add_filter('wp_generate_tag_cloud', 'amaedoandre_tag_cloud',10,1); 
 
-
+/*
+ * Set format and order of tag cloud widget items
+*/
 function set_widget_tag_cloud_args($args) {
 	$my_args = array('format' => 'list', 'orderby'=>'name' );
 	$args = wp_parse_args( $args, $my_args );
-  return $args;
-  }
-  add_filter('widget_tag_cloud_args','set_widget_tag_cloud_args');
+	return $args;
+}
+add_filter('widget_tag_cloud_args','set_widget_tag_cloud_args');
+
+/*
+ * Capitalize tag's first letter
+*/
+add_filter( 'wp_generate_tag_cloud_data', function( $tag_data )
+{
+    return array_map ( 
+        function ( $item )
+        {
+			$item['name'] = ucfirst($item['name']);
+            return $item;
+        }, 
+        (array) $tag_data 
+    );
+
+} );
