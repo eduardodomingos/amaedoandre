@@ -15,6 +15,7 @@ input[type="submit"] {
 	min-height: rem(40px);
 	outline: 0;
 	font-weight: 700;
+	-webkit-appearance: none;
 	
 	@include attention() {
 		border-color: darken($gold-drop, 10%);

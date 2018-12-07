@@ -1,9 +1,9 @@
 #mega-menu {
     position: fixed;
     top: 0;
+    bottom: 0;
     left: 0;
-    width: 100vw;
-    min-height: 100vh;
+    right: 0;
     overflow-y: scroll;
     z-index: 99;
     background: $white;
