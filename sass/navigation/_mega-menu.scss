@@ -3,24 +3,20 @@
     top: 0;
     left: 0;
     width: 100vw;
-    height: 0;
-    overflow-y: auto;
+    min-height: 100vh;
+    overflow-y: scroll;
     z-index: 99;
     background: $white;
-    opacity: 0;
-    transition: opacity .3s, height 0s .3s;
+    display: none;
     
     &.active {
-        opacity: 1;
-        transition: height 0s, opacity .3s;
-        height: 100vh;
+        display: block;
     }
     .container {
         padding-top: rem(90px);
         padding-bottom: rem(90px);
-
-        
         position: relative;
+
         > div {
             > div {
                 min-width: 0;
@@ -36,6 +32,7 @@
     .widget {
         padding: 0;
         margin-bottom: rem(30px);
+        background-color: $white;
         .widget-title {
             text-align-last: left;
         }
@@ -81,7 +78,7 @@
     #mega-menu & {
         position: absolute;
         top: rem(25px);
-        left: 7px;
+        left: 0;
         @include mq($from: tablet) {
             left: auto;
             right: 0;

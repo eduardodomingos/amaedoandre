@@ -43,12 +43,9 @@
         dom.$megamenu_toggle.click(function(){;
             dom.$megamenu.toggleClass('active');
             if(dom.$megamenu.hasClass('active')) {
-                var oldWidth = dom.$body.innerWidth();
                 dom.$body.css("overflow-y", "hidden");
-                dom.$body.width(oldWidth);
             } else {
                 dom.$body.css("overflow-y", "scroll");
-                dom.$body.width("auto");
             }
         });
 
