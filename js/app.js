@@ -36,6 +36,12 @@
         //     dom.$body.toggleClass('no-scroll');
         // });
 
+        $("#demo01").animatedModal({
+            color: '#fff',
+            animatedIn: 'fadeIn',
+            animatedOut: 'fadeOut'
+        });
+
 
         /*
          * Sticky Site Navigation.

@@ -12,19 +12,22 @@ if ( ! is_active_sidebar( 'sidebar-3' ) && ! is_active_sidebar( 'sidebar-4' ) &&
 }
 ?>
 
-<div class="widgetized-menu">
-	<div class="widgetized-menu__wrapper">
-		<button class="widgetized-menu-toggle"><?php echo amaedoandre_get_svg( array( 'icon' => 'x' )); ?>Fechar</button>
-		<div class="widgetized-menu__grid">
-			<div class="widgetized-menu__grid-item">
+<div id="animatedModal">		
+	<div class="modal-content">
+		<!--THIS IS IMPORTANT! to close the modal, the class name has to match the name given on the ID  class="close-animatedModal" -->
+		<div class="close-animatedModal"> 
+			CLOSE MODAL
+		</div>
+		<div class="modal-grid">
+			<div>
 				<?php dynamic_sidebar( 'sidebar-3' ); ?>
 			</div>
-			<div class="widgetized-menu__grid-item">
+			<div>
 				<?php dynamic_sidebar( 'sidebar-4' ); ?>
 			</div>
-			<div class="widgetized-menu__grid-item">
+			<div>
 				<?php dynamic_sidebar( 'sidebar-5' ); ?>
 			</div>
-		</div>
-	</div>	
+		<div class="modal-content">
+	</div>
 </div>

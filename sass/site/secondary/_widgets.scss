@@ -191,6 +191,63 @@
 	}
 }
 
+#animatedModal {
+	.modal-content {
+		max-width: rem(540px);
+		margin: 0 auto;
+		padding: rem(0 15px);
+		@include mq($from: tablet) {
+			max-width: rem(720px);
+		}
+
+		@include mq($from: desktop) {
+			max-width: rem(990px);
+		}
+	}
+	.modal-grid {
+		display: grid;	
+		grid-template-columns: minmax(0, 1fr);
+	
+		@include mq($from: desktop) {
+			grid-template-columns: repeat(3, 1fr);
+			grid-gap: rem(40px);
+		}
+	}
+
+	.widget {
+		margin-bottom: rem(30px);
+		padding: 0;
+		background: transparent;
+
+		ul {
+			list-style: none;
+			margin: 0;
+			li {
+				padding: rem(2px 0);
+				border-bottom: 1px solid $mercury;
+				text-overflow: ellipsis;
+				overflow: hidden;
+				white-space: nowrap;
+				max-width: 100%;
+			}
+		}
+
+		a {
+			color: $mine-shaft;
+			@include attention() {
+			color: $gold-drop;
+			}
+		}
+	}
+
+	.widget-title {
+		margin-bottom: rem(10px);
+		text-align-last: left;
+	}
+}
+
+
+
 .widgetized-menu {
 	position: fixed;
 	top: 0;
@@ -233,34 +290,5 @@
 		overflow: hidden;
 	}
 
-	.widget {
-		margin-bottom: rem(30px);
-		padding: 0;
-		background: transparent;
 
-		ul {
-			list-style: none;
-			margin: 0;
-			li {
-				padding: rem(2px 0);
-				border-bottom: 1px solid $mercury;
-				text-overflow: ellipsis;
-				overflow: hidden;
-				white-space: nowrap;
-				max-width: 100%;
-			}
-		}
-
-		a {
-			color: $mine-shaft;
-			@include attention() {
-			color: $gold-drop;
-			}
-		}
-	}
-
-	.widget-title {
-		margin-bottom: rem(10px);
-		text-align-last: left;
-	}
 }
