@@ -20,6 +20,8 @@
     &.collapsed {
         height: rem($header-height - 45px);
     }
+    
+    @include admin-sticky-fix;
 }
 
 .site-title {

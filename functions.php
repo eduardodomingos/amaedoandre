@@ -158,6 +158,16 @@ function amaedoandre_widgets_init() {
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
+
+	register_sidebar( array(
+		'name'          => 'Home Sidebar',
+		'id'            => 'sidebar-6',
+		'description'   => 'Estes widgets aparecem na sidebar da homepage',
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
 }
 add_action( 'widgets_init', 'amaedoandre_widgets_init' );
 
