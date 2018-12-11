@@ -151,17 +151,23 @@ if ( ! function_exists( 'amaedoandre_share_this' ) ) :
 		?>
 		<div class="share-this">
 			<span class="label"><?php echo amaedoandre_get_svg( array( 'icon' => 'sharing' )); ?> Partilhe</span>
-			<ul class="social-links">
+			<ul class="social-links-list">
 				<li class="facebook">
-					<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $url; ?>" target="_blank">
+					<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $url; ?>" title="Partilhar no Facebook">
 						<?php echo amaedoandre_get_svg( array( 'icon' => 'facebook' )); ?>
-						<span class="screen-reader-text"><?php _e('Share', 'amaedoandre'); ?></span>
+						<span class="screen-reader-text">Partilhar no Facebook</span>
 					</a>
 				</li>
 				<li class="twitter">
-					<a href="https://twitter.com/intent/tweet?text=<?php echo $title; ?>&amp;url=<?php echo $url; ?>&amp;via=amaedoandre" target="_blank">
+					<a href="https://twitter.com/intent/tweet?text=<?php echo $title; ?>&amp;url=<?php echo $url; ?>&amp;via=amaedoandre" title="Partilhar no Twitter">
 						<?php echo amaedoandre_get_svg( array( 'icon' => 'twitter' )); ?>
-						<span class="screen-reader-text"><?php _e('Tweet', 'amaedoandre'); ?></span>
+						<span class="screen-reader-text">Partilhar no Twitter</span>
+					</a>
+				</li>
+				<li class="mail">
+					<a href="mailto:?subject=<?php echo rawurlencode(get_the_title()); ?>&amp;body=Acabei de ler este artigo no blog A Mãe do André: <?php echo $url; ?>" title="Enviar por email">
+						<?php echo amaedoandre_get_svg( array( 'icon' => 'mail' )); ?>
+						<span class="screen-reader-text">Enviar por email</span>
 					</a>
 				</li>
 			</ul>
