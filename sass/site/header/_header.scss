@@ -32,7 +32,7 @@
     margin: 0;
     
     @include mq($from: tablet) {
-        left: 0;
+        left: 10px;
         transform: translate(0%, -50%);
     }
 
