@@ -38,7 +38,7 @@ class amaedoandre_blog_info extends WP_Widget {
 				<?php
 					wp_nav_menu( array(
 						'theme_location'    => 'social',
-						'menu_class'        => 'social-links',
+						'menu_class'        => 'social-links-list',
 						'depth'             => 1,
 						'link_before'       => '<span class="screen-reader-text">',
                         'link_after'        => '</span>' . amaedoandre_get_svg( array( 'icon' => 'chain' ) ),
