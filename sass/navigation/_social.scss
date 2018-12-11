@@ -1,0 +1,67 @@
+.share-this {
+    display: flex;
+    align-items: center;
+    margin: 2rem 0 0;
+
+    .label {
+        margin-right: rem(10px);
+        font-size: rem(13px);
+    }
+}
+
+.social-links-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+
+    .social-menu & {
+        justify-content: center;
+    }
+
+    li {
+        &:not(:last-child) {
+            margin-right: rem(10px);
+        }
+        
+        &.facebook a {
+            background-color: $facebook;
+            @include attention() {
+                background-color: lighten($facebook, 10%);
+            }
+        }
+        &.twitter a {
+            background-color: $twitter;
+            @include attention() {
+                background-color: lighten($twitter, 10%);
+            }
+        }
+        &.instagram a {
+            background-color: $instagram;
+            @include attention() {
+                background-color: lighten($instagram, 10%);
+            }
+        }
+
+        a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 100%;
+            line-height: rem(35px);
+            font-size: rem(14px);
+            width: rem(35px);
+            height: rem(35px);
+            cursor: pointer;
+            transition: $transition;
+            color: $white;
+            background-color: $dove-gray;
+            @include attention() {
+                background-color: lighten($dove-gray, 10%);
+            }
+            .icon {
+                position: static;
+            }
+        }
+    }
+}
