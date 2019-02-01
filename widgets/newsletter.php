@@ -29,7 +29,7 @@ class amaedoandre_newsletter extends WP_Widget {
         echo  $before_title . 'Subscreva a Newsletter' . $after_title;
 		?>
 
-		<p class="widget-description">Receba mensalmente no seu email uma selecção com as melhores histórias</p>
+		<p class="widget-description">Receba no seu email uma selecção com as melhores histórias</p>
 		<!-- Begin Mailchimp Signup Form -->
 		<div id="mc_embed_signup">
 		<form action="https://amaedoandre.us19.list-manage.com/subscribe/post?u=af07deb8a8c17de9426641e49&amp;id=5aab34cc55" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
