@@ -53,7 +53,11 @@
 							<?php foreach( $images as $key => $image ): ?>
 								<div>
 									<figure>
-										<img src="<?php echo $image['sizes']['gallery']; ?>" alt="<?php echo $image['alt']; ?>" />
+										<div class="aspect-ratio-box">
+											<div class="aspect-ratio-box-inside">
+												<img src="<?php echo $image['sizes']['gallery']; ?>" alt="<?php echo $image['alt']; ?>" />
+											</div>
+										</div>
 										<?php if( $image['caption'] ): ?>
 										<figcaption>
 											<span><?php echo $image['caption']; ?></span>
